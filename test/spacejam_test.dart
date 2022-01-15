@@ -1,12 +1,31 @@
-import 'package:flutter_test/flutter_test.dart';
+// Flutter
+import "package:flutter_test/flutter_test.dart";
+import "package:flutter/material.dart";
 
-import 'package:spacejam/spacejam.dart';
+import "package:spacejam/spacejam.dart";
 
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
+  group("Testing the contentBox widget", () {
+    testWidgets("Content box with child property", (WidgetTester tester) async {
+      const Widget child = Text("child");
+
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: ContentBox(
+            title: "title",
+            background: "",
+            child: child,
+          ),
+        ),
+      );
+
+      // Search elements
+      final Finder titleFinder1 = find.text("title");
+      final Finder childFinder = find.byWidget(child);
+
+      // Verify
+      expect(titleFinder1, findsOneWidget);
+      expect(childFinder, findsOneWidget);
+    });
   });
 }

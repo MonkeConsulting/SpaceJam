@@ -1,4 +1,22 @@
-include: package:flutter_lints/flutter.yaml
+include: package:all_lint_rules_community/all.yaml
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+analyzer:
+  exclude: [
+      ios/**,
+      build/**,
+      packages/**
+  ]
+  language:
+    strict-raw-types: true
+
+linter:
+  rules:
+    prefer_single_quotes: false
+    directives_ordering: false
+    always_use_package_imports: false
+    prefer_final_parameters: false
+    avoid_types_on_closure_parameters: false
+    omit_local_variable_types: false
+    prefer_if_elements_to_conditional_expressions: false
+    unnecessary_final: false
+    diagnostic_describe_all_properties: false
