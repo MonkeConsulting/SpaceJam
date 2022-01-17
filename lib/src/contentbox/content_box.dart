@@ -2,9 +2,6 @@
 import "package:auto_size_text/auto_size_text.dart";
 import "package:flutter/material.dart";
 
-// Widgets
-import "../stylesheets/text_styles.dart";
-
 /// Custom decorated widget to display information.
 class ContentBox extends StatelessWidget {
   /// Constructor
@@ -59,7 +56,7 @@ class ContentBox extends StatelessWidget {
                 ),
                 child: AutoSizeText(
                   title,
-                  style: SpaceJamTextStyles.headline(context),
+                  style: Theme.of(context).textTheme.headlineMedium,
                   maxLines: 1,
                   group: contentBigTextSize,
                 ),
