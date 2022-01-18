@@ -23,7 +23,7 @@ void main() {
       final Finder titleFinder1 = find.text("title");
       final Finder childFinder = find.byWidget(child);
 
-      // Verify
+      // Verify elements
       expect(titleFinder1, findsOneWidget);
       expect(childFinder, findsOneWidget);
     });
@@ -33,7 +33,7 @@ void main() {
       Text("second child of children")
     ];
 
-    testWidgets("Content box with child property", (WidgetTester tester) async {
+    testWidgets("Content box with children property", (WidgetTester tester) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: ContentBox(
@@ -53,7 +53,7 @@ void main() {
         expect(childrenFinder, findsOneWidget);
       }
 
-      // Verify
+      // Verify elements
       expect(titleFinder, findsOneWidget);
     });
   });
