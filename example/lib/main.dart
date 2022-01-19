@@ -1,43 +1,37 @@
 // Flutter
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
 
 // SpaceJam
-import 'package:spacejam/spacejam.dart';
+import "package:spacejam/spacejam.dart";
 
 void main() {
   runApp(const MyApp());
 }
 
+/// App
 class MyApp extends StatelessWidget {
+  /// Constructor
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'SpaceJam example',
+  Widget build(BuildContext context) => MaterialApp(
+      title: "SpaceJam example",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'SpaceJam example'),
+      home: const MyHomePage(),
     );
-  }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+/// Stateful part of the widget.
+class MyHomePage extends StatelessWidget {
+  /// Constructor
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text("SpaceJam example"),
       ),
       body: Center(
         child: Column(
@@ -45,32 +39,43 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
-              'Title',
+              "Title",
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Text(
-              'Subtitle',
+              "Subtitle",
               style: Theme.of(context).textTheme.subtitle1,
             ),
             Text(
-              'Headline',
+              "Headline",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             Text(
-              'Subheading',
+              "Subheading",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             Text(
-              'Body',
+              "Body",
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             Text(
-              'Caption',
+              "Caption",
               style: Theme.of(context).textTheme.caption,
             ),
+            Button(valueFontSize: 32, titleFontSize: 24, title: "Test", value: "ImageViewer", background: Colors.blue, action: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => ImagePage(
+                    locale: const Locale("en"),
+                    image: Image.network("https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg"),
+                    imageURL: "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                  ),
+                ),
+              );
+            },),
           ],
         ),
       ),
     );
-  }
 }
