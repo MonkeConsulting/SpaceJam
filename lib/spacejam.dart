@@ -1,3 +1,5 @@
+export "src/theme/textStyles.dart";
+
 // Widgets
 export "src/contentbox/content_box.dart";
 export "src/imagepage/image_page.dart";

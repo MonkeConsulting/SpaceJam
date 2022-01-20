@@ -76,45 +76,33 @@ class MyHomePage extends StatelessWidget {
             children: <Widget>[
               Text(
                 "Title",
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontSize: (MediaQuery.of(context).size.width +
-                              MediaQuery.of(context).size.height) /
-                          2 *
-                          .06,
-                    ),
+                style: SpaceJamTextStyles.title(context),
               ),
               Text(
                 "Subtitle",
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      fontSize: (MediaQuery.of(context).size.width +
-                              MediaQuery.of(context).size.height) /
-                          2 *
-                          .04,
-                    ),
+                style: SpaceJamTextStyles.titleSmall(context),
               ),
               Text(
                 "Headline",
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontSize: MediaQuery.of(context).size.width * .08,
-                    ),
+                style: SpaceJamTextStyles.headline(context),
               ),
               Text(
                 "Subheading",
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontSize: MediaQuery.of(context).size.width * .05,
-                    ),
+                style: SpaceJamTextStyles.headlineSmall(context),
               ),
               Text(
                 "Body",
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontSize: MediaQuery.of(context).size.height * .025,
-                    color: Colors.black,),
+                style: SpaceJamTextStyles.bodyMedium(
+                  context,
+                  color: Colors.black,
+                ),
               ),
               Text(
                 "Caption",
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontSize: MediaQuery.of(context).size.height * .02,
-                    color: Colors.black,),
+                style: SpaceJamTextStyles.bodySmall(
+                  context,
+                  color: Colors.black,
+                ),
               ),
               Button(
                 valueFontSize: 32,
