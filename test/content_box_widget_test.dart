@@ -33,7 +33,8 @@ void main() {
       Text("second child of children")
     ];
 
-    testWidgets("Content box with children property", (WidgetTester tester) async {
+    testWidgets("Content box with children property",
+        (WidgetTester tester) async {
       await tester.pumpWidget(
         const MaterialApp(
           home: ContentBox(
