@@ -1,4 +1,4 @@
-export "src/theme/textStyles.dart";
+export "src/theme/text_styles.dart";
 
 // Widgets
 export "src/contentbox/content_box.dart";
