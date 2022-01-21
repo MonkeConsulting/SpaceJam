@@ -1,6 +1,6 @@
 name: spacejam
-description: Space Jam UI for Flutter.
-version: 0.0.1
+description: SpaceJam UI for Flutter.
+version: 0.1.0
 homepage: https://www.kekesi.dev
 
 environment:

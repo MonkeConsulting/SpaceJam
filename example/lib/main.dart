@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         title: "SpaceJam example",
         home: const MyHomePage(),
         theme: ThemeData(
-          primarySwatch: Colors.red,
+          primarySwatch: Colors.blue,
           // TextThemes
           textTheme: const TextTheme(
             titleMedium: TextStyle(
@@ -66,9 +66,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: const Text("SpaceJam example"),
-        ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

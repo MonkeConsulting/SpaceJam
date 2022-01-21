@@ -53,7 +53,7 @@ class ImagePageState extends State<ImagePage> {
       throw Exception(
         "Locale is not supported.\n"
         "To add this locale head over to\n"
-        "https://github.com/PrismForDart/SpaceJam/blob/main/docs/localisation.md.",
+        "https://github.com/PrismForDart/SpaceJam/blob/main/doc/localisation.md.",
       );
     }
 
