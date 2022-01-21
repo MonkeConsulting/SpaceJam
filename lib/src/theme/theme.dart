@@ -7,8 +7,10 @@ class SpaceJamTheme {
 
   /// Locale for the package's translations.
   Locale locale;
+
   /// Path to the background used across the package.
   String pathToBackground;
+
   /// Name of the app. Used in the promo widget.
   String appName;
 }

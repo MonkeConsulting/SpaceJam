@@ -41,7 +41,7 @@ class Button extends StatelessWidget {
       fontWeight: FontWeight.bold,
     ),
     this.titleTextStyle =
-    const TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
+        const TextStyle(color: Colors.white70, fontWeight: FontWeight.bold),
     this.tooltip = "",
     this.title,
     this.iconStyle = const IconStyle(),
@@ -57,6 +57,7 @@ class Button extends StatelessWidget {
 
   /// Title of the button.
   final String? title;
+
   /// Styling of the text.
   final TextStyle titleTextStyle;
 
@@ -65,6 +66,7 @@ class Button extends StatelessWidget {
 
   /// The value of the button. [String] or a [Widget].
   final dynamic value;
+
   /// If [value] is a String, this will be used to style it.
   final TextStyle valueTextStyle;
 
@@ -73,6 +75,7 @@ class Button extends StatelessWidget {
 
   /// The styling of the [Icon].
   final IconStyle iconStyle;
+
   /// Styling of the value's [AutoSizeText] parts.
   final AutoSizeTextStyle autoSizeTextStyle;
 
@@ -89,23 +92,23 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle primaryFinalTextStyle =
-    valueTextStyle.copyWith(fontSize: valueFontSize);
+        valueTextStyle.copyWith(fontSize: valueFontSize);
     final TextStyle secondaryFinalTextStyle =
-    titleTextStyle.copyWith(fontSize: titleFontSize);
+        titleTextStyle.copyWith(fontSize: titleFontSize);
 
     return GestureDetector(
       onTap: action,
       child: Container(
         width: MediaQuery.of(context).size.width * .9 -
             (MediaQuery.of(context).size.width +
-                MediaQuery.of(context).size.height) /
+                    MediaQuery.of(context).size.height) /
                 2 *
                 .02,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(
               (MediaQuery.of(context).size.width +
-                  MediaQuery.of(context).size.height) /
+                      MediaQuery.of(context).size.height) /
                   2 *
                   .02,
             ),
@@ -115,7 +118,7 @@ class Button extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(
             (MediaQuery.of(context).size.width +
-                MediaQuery.of(context).size.height) /
+                    MediaQuery.of(context).size.height) /
                 2 *
                 .02,
           ),
@@ -125,9 +128,9 @@ class Button extends StatelessWidget {
               // conditional to render text with title or not
               title != null
                   ? Text(
-                title!,
-                style: secondaryFinalTextStyle,
-              )
+                      title!,
+                      style: secondaryFinalTextStyle,
+                    )
                   : const Min(),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -136,30 +139,30 @@ class Button extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .9 -
                         (MediaQuery.of(context).size.width +
-                            MediaQuery.of(context).size.height) /
+                                MediaQuery.of(context).size.height) /
                             2 *
                             .04 -
                         MediaQuery.of(context).size.width * .175,
                     child: value is String
                         ? AutoSizeText(
-                      value,
-                      style: primaryFinalTextStyle,
-                      maxLines: autoSizeTextStyle.maxLines,
-                      group: autoSizeTextStyle.group,
-                    )
+                            value,
+                            style: primaryFinalTextStyle,
+                            maxLines: autoSizeTextStyle.maxLines,
+                            group: autoSizeTextStyle.group,
+                          )
                         : value,
                   ),
 
                   // conditional to render icon or not
                   action != null
                       ? Tooltip(
-                    message: tooltip,
-                    child: Icon(
-                      Icons.arrow_forward_rounded,
-                      size: MediaQuery.of(context).size.width * .075,
-                      color: iconStyle.color ?? valueTextStyle.color,
-                    ),
-                  )
+                          message: tooltip,
+                          child: Icon(
+                            Icons.arrow_forward_rounded,
+                            size: MediaQuery.of(context).size.width * .075,
+                            color: iconStyle.color ?? valueTextStyle.color,
+                          ),
+                        )
                       : const Min(),
                 ],
               ),

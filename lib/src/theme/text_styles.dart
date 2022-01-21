@@ -86,21 +86,21 @@ class SpaceJamTextStyles {
 
   /// TextStyle for bodyMedium.
   static TextStyle? bodyMedium(
-      BuildContext context, {
-        Color? color,
-        double? letterSpacing,
-        FontWeight? fontWeight,
-        FontStyle? fontStyle,
-        TextDecoration? decoration,
-      }) =>
+    BuildContext context, {
+    Color? color,
+    double? letterSpacing,
+    FontWeight? fontWeight,
+    FontStyle? fontStyle,
+    TextDecoration? decoration,
+  }) =>
       Theme.of(context).textTheme.bodySmall?.copyWith(
-        fontSize: MediaQuery.of(context).size.height * .025,
-        color: color,
-        letterSpacing: letterSpacing,
-        fontWeight: fontWeight,
-        fontStyle: fontStyle,
-        decoration: decoration,
-      );
+            fontSize: MediaQuery.of(context).size.height * .025,
+            color: color,
+            letterSpacing: letterSpacing,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle,
+            decoration: decoration,
+          );
 
   /// TextStyle for bodySmall.
   static TextStyle? bodySmall(

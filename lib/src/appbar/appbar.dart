@@ -51,11 +51,11 @@ class Appbar extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(
             sigmaX: (MediaQuery.of(context).size.height +
-                MediaQuery.of(context).size.width) /
+                    MediaQuery.of(context).size.width) /
                 2 *
                 .02,
             sigmaY: (MediaQuery.of(context).size.height +
-                MediaQuery.of(context).size.width) /
+                    MediaQuery.of(context).size.width) /
                 2 *
                 .02,
           ),
@@ -74,7 +74,7 @@ class Appbar extends StatelessWidget {
                   padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).size.width * .05,
                     left: (MediaQuery.of(context).size.width +
-                        MediaQuery.of(context).size.height) /
+                            MediaQuery.of(context).size.height) /
                         2 *
                         .04,
                   ),

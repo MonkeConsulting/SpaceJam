@@ -1,10 +1,10 @@
 name: spacejam
-description: SpaceJam UI for Flutter.
-version: 0.1.0
+description: SpaceJam is an open-sourced internal package used across the Mira Collection.
+version: 0.1.1
 homepage: https://www.kekesi.dev
 
 environment:
-  sdk: ">=2.16.0-159.0.dev <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:

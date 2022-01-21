@@ -25,22 +25,22 @@ class AppBarAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-    onTap: action,
-    child: Padding(
-      padding: EdgeInsets.only(
-        right: (MediaQuery.of(context).size.width +
-            MediaQuery.of(context).size.height) /
-            2 *
-            .04,
-      ),
-      child: Tooltip(
-        message: tooltip,
-        child: Icon(
-          icon,
-          size: MediaQuery.of(context).size.width * .075,
-          color: Colors.black,
+        onTap: action,
+        child: Padding(
+          padding: EdgeInsets.only(
+            right: (MediaQuery.of(context).size.width +
+                    MediaQuery.of(context).size.height) /
+                2 *
+                .04,
+          ),
+          child: Tooltip(
+            message: tooltip,
+            child: Icon(
+              icon,
+              size: MediaQuery.of(context).size.width * .075,
+              color: Colors.black,
+            ),
+          ),
         ),
-      ),
-    ),
-  );
+      );
 }
