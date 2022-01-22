@@ -15,17 +15,18 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.titleMedium?.copyWith(
-            fontSize: (MediaQuery.of(context).size.width +
-                    MediaQuery.of(context).size.height) /
-                2 *
-                .06,
-            color: color,
-            letterSpacing: letterSpacing,
-            fontWeight: fontWeight,
-            fontStyle: fontStyle,
-            decoration: decoration,
-          );
+      Theme.of(context).textTheme.titleMedium ??
+      const TextStyle().copyWith(
+        fontSize: (MediaQuery.of(context).size.width +
+                MediaQuery.of(context).size.height) /
+            2 *
+            .06,
+        color: color,
+        letterSpacing: letterSpacing,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
+        decoration: decoration,
+      );
 
   /// TextStyle for titleSmall.
   static TextStyle? titleSmall(
@@ -36,17 +37,18 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.titleSmall?.copyWith(
-            fontSize: (MediaQuery.of(context).size.width +
-                    MediaQuery.of(context).size.height) /
-                2 *
-                .04,
-            color: color,
-            letterSpacing: letterSpacing,
-            fontWeight: fontWeight,
-            fontStyle: fontStyle,
-            decoration: decoration,
-          );
+      Theme.of(context).textTheme.titleSmall ??
+      const TextStyle().copyWith(
+        fontSize: (MediaQuery.of(context).size.width +
+                MediaQuery.of(context).size.height) /
+            2 *
+            .04,
+        color: color,
+        letterSpacing: letterSpacing,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
+        decoration: decoration,
+      );
 
   /// TextStyle for headlines.
   static TextStyle? headline(
@@ -57,14 +59,15 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.headlineMedium?.copyWith(
-            fontSize: MediaQuery.of(context).size.width * .08,
-            color: color,
-            letterSpacing: letterSpacing,
-            fontWeight: fontWeight,
-            fontStyle: fontStyle,
-            decoration: decoration,
-          );
+      Theme.of(context).textTheme.headlineMedium ??
+      const TextStyle().copyWith(
+        fontSize: MediaQuery.of(context).size.width * .08,
+        color: color,
+        letterSpacing: letterSpacing,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
+        decoration: decoration,
+      );
 
   /// TextStyle for headlineSmall.
   static TextStyle? headlineSmall(
@@ -75,14 +78,15 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.headlineSmall?.copyWith(
-            fontSize: MediaQuery.of(context).size.width * .05,
-            color: color,
-            letterSpacing: letterSpacing,
-            fontWeight: fontWeight,
-            fontStyle: fontStyle,
-            decoration: decoration,
-          );
+      Theme.of(context).textTheme.headlineSmall ??
+      const TextStyle().copyWith(
+        fontSize: MediaQuery.of(context).size.width * .05,
+        color: color,
+        letterSpacing: letterSpacing,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
+        decoration: decoration,
+      );
 
   /// TextStyle for bodyMedium.
   static TextStyle? bodyMedium(
@@ -93,14 +97,15 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.bodySmall?.copyWith(
-            fontSize: MediaQuery.of(context).size.height * .025,
-            color: color,
-            letterSpacing: letterSpacing,
-            fontWeight: fontWeight,
-            fontStyle: fontStyle,
-            decoration: decoration,
-          );
+      Theme.of(context).textTheme.bodySmall ??
+      const TextStyle().copyWith(
+        fontSize: MediaQuery.of(context).size.height * .025,
+        color: color,
+        letterSpacing: letterSpacing,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
+        decoration: decoration,
+      );
 
   /// TextStyle for bodySmall.
   static TextStyle? bodySmall(
@@ -111,12 +116,13 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.bodySmall?.copyWith(
-            fontSize: MediaQuery.of(context).size.height * .02,
-            color: color,
-            letterSpacing: letterSpacing,
-            fontWeight: fontWeight,
-            fontStyle: fontStyle,
-            decoration: decoration,
-          );
+      Theme.of(context).textTheme.bodySmall ??
+      const TextStyle().copyWith(
+        fontSize: MediaQuery.of(context).size.height * .02,
+        color: color,
+        letterSpacing: letterSpacing,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
+        decoration: decoration,
+      );
 }
