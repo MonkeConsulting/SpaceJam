@@ -15,8 +15,7 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.titleMedium ??
-      const TextStyle().copyWith(
+      (Theme.of(context).textTheme.titleMedium ?? const TextStyle()).copyWith(
         fontSize: (MediaQuery.of(context).size.width +
                 MediaQuery.of(context).size.height) /
             2 *
@@ -37,8 +36,7 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.titleSmall ??
-      const TextStyle().copyWith(
+      (Theme.of(context).textTheme.titleSmall ?? const TextStyle()).copyWith(
         fontSize: (MediaQuery.of(context).size.width +
                 MediaQuery.of(context).size.height) /
             2 *
@@ -59,8 +57,8 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.headlineMedium ??
-      const TextStyle().copyWith(
+      (Theme.of(context).textTheme.headlineMedium ?? const TextStyle())
+          .copyWith(
         fontSize: MediaQuery.of(context).size.width * .08,
         color: color,
         letterSpacing: letterSpacing,
@@ -78,8 +76,7 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.headlineSmall ??
-      const TextStyle().copyWith(
+      (Theme.of(context).textTheme.headlineSmall ?? const TextStyle()).copyWith(
         fontSize: MediaQuery.of(context).size.width * .05,
         color: color,
         letterSpacing: letterSpacing,
@@ -97,8 +94,7 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.bodySmall ??
-      const TextStyle().copyWith(
+      (Theme.of(context).textTheme.bodySmall ?? const TextStyle()).copyWith(
         fontSize: MediaQuery.of(context).size.height * .025,
         color: color,
         letterSpacing: letterSpacing,
@@ -116,8 +112,7 @@ class SpaceJamTextStyles {
     FontStyle? fontStyle,
     TextDecoration? decoration,
   }) =>
-      Theme.of(context).textTheme.bodySmall ??
-      const TextStyle().copyWith(
+      (Theme.of(context).textTheme.bodySmall ?? const TextStyle()).copyWith(
         fontSize: MediaQuery.of(context).size.height * .02,
         color: color,
         letterSpacing: letterSpacing,
