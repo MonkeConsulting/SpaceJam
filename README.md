@@ -1,4 +1,5 @@
 # SpaceJam
+[![Test SpaceJam package](https://github.com/PrismForDart/SpaceJam/actions/workflows/test_package.yml/badge.svg)](https://github.com/PrismForDart/SpaceJam/actions/workflows/test_package.yml)
 
 ## Features
 
