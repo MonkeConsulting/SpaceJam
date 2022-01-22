@@ -7,7 +7,7 @@ import "package:flutter/material.dart";
 /// general use in all kinds of applications.
 class SpaceJamTextStyles {
   /// TextStyle for titleMedium.
-  static TextStyle? title(
+  static TextStyle title(
     BuildContext context, {
     Color? color,
     double? letterSpacing,
@@ -28,7 +28,7 @@ class SpaceJamTextStyles {
       );
 
   /// TextStyle for titleSmall.
-  static TextStyle? titleSmall(
+  static TextStyle titleSmall(
     BuildContext context, {
     Color? color,
     double? letterSpacing,
@@ -49,7 +49,7 @@ class SpaceJamTextStyles {
       );
 
   /// TextStyle for headlines.
-  static TextStyle? headline(
+  static TextStyle headline(
     BuildContext context, {
     Color? color,
     double? letterSpacing,
@@ -68,7 +68,7 @@ class SpaceJamTextStyles {
       );
 
   /// TextStyle for headlineSmall.
-  static TextStyle? headlineSmall(
+  static TextStyle headlineSmall(
     BuildContext context, {
     Color? color,
     double? letterSpacing,
@@ -86,7 +86,7 @@ class SpaceJamTextStyles {
       );
 
   /// TextStyle for bodyMedium.
-  static TextStyle? bodyMedium(
+  static TextStyle bodyMedium(
     BuildContext context, {
     Color? color,
     double? letterSpacing,
@@ -104,7 +104,7 @@ class SpaceJamTextStyles {
       );
 
   /// TextStyle for bodySmall.
-  static TextStyle? bodySmall(
+  static TextStyle bodySmall(
     BuildContext context, {
     Color? color,
     double? letterSpacing,
