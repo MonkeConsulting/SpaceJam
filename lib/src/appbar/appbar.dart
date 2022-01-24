@@ -46,10 +46,9 @@ class AppbarState extends State<Appbar> {
   /// Double to store the widgets size.
   double widgetSize = 0;
 
+  /// Returns the opacity of the appbar
   double appbarOpacity({required double offset, required double size}) {
-    if (offset > size * 0.3) {
-      return 0;
-    } else if (offset < size * 1.6) {
+    if (offset > size * .7) {
       return 1;
     } else {
       return 0;
@@ -70,7 +69,7 @@ class AppbarState extends State<Appbar> {
     }
 
     return Stack(
-      children: [
+      children: <Widget>[
         Container(
           alignment: Alignment.topLeft,
           child: SizeProviderWidget(
@@ -120,7 +119,7 @@ class AppbarState extends State<Appbar> {
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    AnimatedOpacity(
+                                    widget.controller != null ? AnimatedOpacity(
                                       opacity: appbarOpacity(
                                         offset: widget.controller!.offset,
                                         size: widgetSize,
@@ -132,6 +131,10 @@ class AppbarState extends State<Appbar> {
                                         style:
                                             SpaceJamTextStyles.title(context),
                                       ),
+                                    ) : Text(
+                                      widget.title,
+                                      style:
+                                      SpaceJamTextStyles.title(context),
                                     ),
                                     subtitleWidget(),
                                   ],

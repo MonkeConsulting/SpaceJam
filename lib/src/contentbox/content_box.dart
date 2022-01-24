@@ -7,7 +7,8 @@ class ContentBox extends StatelessWidget {
   /// Constructor
   const ContentBox({
     required this.title,
-    required this.background,
+    this.pathToBackground,
+    this.backgroundColor,
     this.child,
     this.children,
     Key? key,
@@ -16,8 +17,11 @@ class ContentBox extends StatelessWidget {
   /// Title displayed at the top.
   final String title;
 
-  /// Path to the background
-  final String background;
+  /// Path to the background.
+  final String? pathToBackground;
+
+  /// Background color.
+  final Color? backgroundColor;
 
   /// Child of the widget.
   final Widget? child;
@@ -68,10 +72,11 @@ class ContentBox extends StatelessWidget {
                 ),
                 child: Container(
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(background),
+                    color: backgroundColor,
+                    image: pathToBackground != null ? DecorationImage(
+                      image: AssetImage(pathToBackground!),
                       fit: BoxFit.cover,
-                    ),
+                    ): null,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         (MediaQuery.of(context).size.width +
