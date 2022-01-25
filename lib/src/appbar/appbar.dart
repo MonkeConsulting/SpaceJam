@@ -81,10 +81,26 @@ class AppbarState extends State<Appbar> {
 
     Widget subtitleWidget() {
       if (widget.subtitle != null) {
-        return Text(
-          widget.subtitle!,
-          style: SpaceJamTextStyles.titleSmall(context),
-        );
+        return widget.controller != null && animated == true
+            ? AnimatedOpacity(
+                opacity: appbarOpacity(
+                  offset: widget.controller!.offset,
+                  size: widgetSize,
+                ),
+                duration: const Duration(
+                  milliseconds: 150,
+                ),
+                child: Text(
+                  widget.subtitle!,
+                  style: SpaceJamTextStyles.title(
+                    context,
+                  ),
+                ),
+              )
+            : Text(
+                widget.subtitle!,
+                style: SpaceJamTextStyles.titleSmall(context),
+              );
       } else {
         return const Min();
       }

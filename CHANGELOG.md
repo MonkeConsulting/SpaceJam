@@ -1,3 +1,5 @@
+# 0.2.1
+* Bugfixes
 # 0.2.0
 * Appbar can be animated by providing a ScrollController to it.
 #### Breaking changes:

@@ -24,7 +24,7 @@ SpaceJam is an open-sourced internal package for the visuals of the Mira Collect
 Add `spacejam` to your dependencies.yaml.
 ```yaml
 dependencies:
-  spacejam: ^0.1.0
+  spacejam: ^0.2.1
 ```
 
 Run pub get in your terminal.
