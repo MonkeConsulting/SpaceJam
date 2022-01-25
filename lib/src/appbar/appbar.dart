@@ -92,7 +92,7 @@ class AppbarState extends State<Appbar> {
                 ),
                 child: Text(
                   widget.subtitle!,
-                  style: SpaceJamTextStyles.title(
+                  style: SpaceJamTextStyles.titleSmall(
                     context,
                   ),
                 ),

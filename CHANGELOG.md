@@ -1,3 +1,5 @@
+# 0.2.2
+* Bugfixes
 # 0.2.1
 * Bugfixes
 # 0.2.0
