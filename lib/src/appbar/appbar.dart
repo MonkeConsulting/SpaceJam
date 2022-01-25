@@ -19,6 +19,7 @@ class Appbar extends StatefulWidget {
     this.leftAction,
     this.rightAction,
     this.controller,
+    this.animated = "system",
     Key? key,
   }) : super(key: key);
 
@@ -36,6 +37,10 @@ class Appbar extends StatefulWidget {
 
   /// A [ScrollController] used to make the animations
   final ScrollController? controller;
+
+  /// If a [ScrollController] is presented the Appbar can be animated.
+  /// Default to system preferences.
+  final String animated;
 
   @override
   AppbarState createState() => AppbarState();
@@ -57,6 +62,23 @@ class AppbarState extends State<Appbar> {
 
   @override
   Widget build(BuildContext context) {
+    late bool animated;
+    if (widget.animated != "system" &&
+        widget.animated != "on" &&
+        widget.animated != "off") {
+      throw Exception(
+        'The property animated should be "system", "on" or "off".',
+      );
+    } else {
+      if (widget.animated == "system") {
+        animated = !MediaQuery.of(context).disableAnimations;
+      } else if (widget.animated == "on") {
+        animated = true;
+      } else {
+        animated = false;
+      }
+    }
+
     Widget subtitleWidget() {
       if (widget.subtitle != null) {
         return Text(
@@ -119,23 +141,29 @@ class AppbarState extends State<Appbar> {
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    widget.controller != null ? AnimatedOpacity(
-                                      opacity: appbarOpacity(
-                                        offset: widget.controller!.offset,
-                                        size: widgetSize,
-                                      ),
-                                      duration:
-                                          const Duration(milliseconds: 150),
-                                      child: Text(
-                                        widget.title,
-                                        style:
-                                            SpaceJamTextStyles.title(context),
-                                      ),
-                                    ) : Text(
-                                      widget.title,
-                                      style:
-                                      SpaceJamTextStyles.title(context),
-                                    ),
+                                    widget.controller != null &&
+                                            animated == true
+                                        ? AnimatedOpacity(
+                                            opacity: appbarOpacity(
+                                              offset: widget.controller!.offset,
+                                              size: widgetSize,
+                                            ),
+                                            duration: const Duration(
+                                              milliseconds: 150,
+                                            ),
+                                            child: Text(
+                                              widget.title,
+                                              style: SpaceJamTextStyles.title(
+                                                context,
+                                              ),
+                                            ),
+                                          )
+                                        : Text(
+                                            widget.title,
+                                            style: SpaceJamTextStyles.title(
+                                              context,
+                                            ),
+                                          ),
                                     subtitleWidget(),
                                   ],
                                 ),
