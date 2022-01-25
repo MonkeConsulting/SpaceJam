@@ -13,7 +13,7 @@ void main() {
         const MaterialApp(
           home: ContentBox(
             title: "title",
-            background: "",
+            backgroundColor: Colors.blue,
             child: child,
           ),
         ),
@@ -39,7 +39,7 @@ void main() {
         const MaterialApp(
           home: ContentBox(
             title: "title",
-            background: "",
+            backgroundColor: Colors.blue,
             children: children,
           ),
         ),
