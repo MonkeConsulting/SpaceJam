@@ -37,6 +37,7 @@ class Example extends StatelessWidget {
             ),
             headlineMedium: TextStyle(
               //fontSize: MediaQuery.of(context).size.width * .08,
+              fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
             headlineSmall: TextStyle(
@@ -176,8 +177,17 @@ class HomePageState extends State<HomePage> {
                       ],
                     ),
                     const SizedBox(
-                      height: 1000,
-                    )
+                      height: 50,
+                    ),
+                    CollectionItem(
+                      backgroundColor: Colors.blue,
+                      onTap: () {
+                      },
+                      upperCaption: "caption",
+                      upperValue: "value",
+                      lowerCaption: "caption",
+                      lowerValue: "value",
+                    ),
                   ],
                 ),
               ),

@@ -20,6 +20,9 @@ class Appbar extends StatefulWidget {
     this.rightAction,
     this.controller,
     this.animated = "system",
+    this.animationDuration = const Duration(
+      milliseconds: 150,
+    ),
     Key? key,
   }) : super(key: key);
 
@@ -41,6 +44,9 @@ class Appbar extends StatefulWidget {
   /// If a [ScrollController] is presented the Appbar can be animated.
   /// Default to system preferences.
   final String animated;
+
+  /// Duration of the opacity animation
+  final Duration animationDuration;
 
   @override
   AppbarState createState() => AppbarState();
@@ -87,9 +93,7 @@ class AppbarState extends State<Appbar> {
                   offset: widget.controller!.offset,
                   size: widgetSize,
                 ),
-                duration: const Duration(
-                  milliseconds: 150,
-                ),
+                duration: widget.animationDuration,
                 child: Text(
                   widget.subtitle!,
                   style: SpaceJamTextStyles.titleSmall(
@@ -164,9 +168,7 @@ class AppbarState extends State<Appbar> {
                                               offset: widget.controller!.offset,
                                               size: widgetSize,
                                             ),
-                                            duration: const Duration(
-                                              milliseconds: 150,
-                                            ),
+                                            duration: widget.animationDuration,
                                             child: Text(
                                               widget.title,
                                               style: SpaceJamTextStyles.title(

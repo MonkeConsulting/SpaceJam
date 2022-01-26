@@ -12,7 +12,7 @@
 - [x] SpaceJamApp Theme
 - [ ] SpaceJamApp
 - [ ] SpaceJam Collection
-- [ ] SpaceJam CollectionItem
+- [x] SpaceJam CollectionItem
 - [ ] ImageBox
 
 ## Getting started

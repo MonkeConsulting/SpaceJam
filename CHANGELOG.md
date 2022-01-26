@@ -1,3 +1,6 @@
+# 0.3.0
+* Added ContentItem
+* Added `duration` property to Appbar
 # 0.2.2
 * Bugfixes
 # 0.2.1
