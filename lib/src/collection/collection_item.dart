@@ -72,7 +72,7 @@ class CollectionItem extends StatelessWidget {
                   ),
                 ),
               ),
-              width: MediaQuery.of(context).size.width * .38749,
+              width: MediaQuery.of(context).size.width * .4,
               height: MediaQuery.of(context).size.height * .2,
               child: Padding(
                 padding: EdgeInsets.all(

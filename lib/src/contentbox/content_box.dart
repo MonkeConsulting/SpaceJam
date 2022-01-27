@@ -73,12 +73,10 @@ class ContentBox extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: backgroundColor,
-                    image: pathToBackground != null
-                        ? DecorationImage(
-                            image: AssetImage(pathToBackground!),
-                            fit: BoxFit.cover,
-                          )
-                        : null,
+                    image: pathToBackground != null ? DecorationImage(
+                      image: AssetImage(pathToBackground!),
+                      fit: BoxFit.cover,
+                    ): null,
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         (MediaQuery.of(context).size.width +

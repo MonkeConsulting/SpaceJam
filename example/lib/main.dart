@@ -89,7 +89,6 @@ class HomePageState extends State<HomePage> {
               child: SingleChildScrollView(
                 controller: _controller,
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     const Opacity(
                       opacity: 0,
@@ -177,16 +176,30 @@ class HomePageState extends State<HomePage> {
                       ],
                     ),
                     const SizedBox(
-                      height: 50,
+                      height: 0,
                     ),
-                    CollectionItem(
-                      backgroundColor: Colors.blue,
-                      onTap: () {
-                      },
-                      upperCaption: "caption",
-                      upperValue: "value",
-                      lowerCaption: "caption",
-                      lowerValue: "value",
+                    Collection(
+                      items: <CollectionItem>[
+                        CollectionItem(
+                          backgroundColor: Colors.blue,
+                          onTap: () {},
+                          upperCaption: "caption",
+                          upperValue: "value",
+                          lowerCaption: "caption",
+                          lowerValue: "value",
+                        ),
+                        CollectionItem(
+                          backgroundColor: Colors.blue,
+                          onTap: () {},
+                          upperCaption: "caption",
+                          upperValue: "value",
+                          lowerCaption: "caption",
+                          lowerValue: "value",
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 500,
                     ),
                   ],
                 ),
