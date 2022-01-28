@@ -179,10 +179,24 @@ class HomePageState extends State<HomePage> {
                       height: 0,
                     ),
                     Collection(
+                      title: "Collection",
                       items: <CollectionItem>[
-                        CollectionItem(
+                        const CollectionItem(
                           backgroundColor: Colors.blue,
-                          onTap: () {},
+                          upperCaption: "caption",
+                          upperValue: "value",
+                          lowerCaption: "caption",
+                          lowerValue: "value",
+                        ),
+                        const CollectionItem(
+                          backgroundColor: Colors.blue,
+                          upperCaption: "caption",
+                          upperValue: "value",
+                          lowerCaption: "caption",
+                          lowerValue: "value",
+                        ),
+                        const CollectionItem(
+                          backgroundColor: Colors.blue,
                           upperCaption: "caption",
                           upperValue: "value",
                           lowerCaption: "caption",
@@ -197,9 +211,6 @@ class HomePageState extends State<HomePage> {
                           lowerValue: "value",
                         ),
                       ],
-                    ),
-                    const SizedBox(
-                      height: 500,
                     ),
                   ],
                 ),
