@@ -6,7 +6,8 @@ import "package:spacejam/spacejam.dart";
 
 void main() {
   group("Testing the SpaceJamButton widget", () {
-    testWidgets("SpaceJamButton where value is a string", (WidgetTester tester) async {
+    testWidgets("SpaceJamButton where value is a string",
+        (WidgetTester tester) async {
       bool variable = false;
 
       await tester.pumpWidget(
@@ -36,7 +37,8 @@ void main() {
       expect(variable, true);
     });
 
-    testWidgets("SpaceJamButton where value is a widget", (WidgetTester tester) async {
+    testWidgets("SpaceJamButton where value is a widget",
+        (WidgetTester tester) async {
       const Widget child = Text("Widget");
       bool variable = false;
 

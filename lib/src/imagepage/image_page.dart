@@ -15,9 +15,9 @@ Map<String, Map<String, String>> _localization = <String, Map<String, String>>{
 };
 
 /// Fullscreen image shower.
-class ImagePage extends StatefulWidget {
+class SpaceJamImagePage extends StatefulWidget {
   /// Constructor
-  const ImagePage({
+  const SpaceJamImagePage({
     required this.image,
     this.locale = const Locale("en", ""),
     this.imageURL,
@@ -42,14 +42,14 @@ class ImagePage extends StatefulWidget {
   ];
 
   @override
-  ImagePageState createState() => ImagePageState();
+  SpaceJamImagePageState createState() => SpaceJamImagePageState();
 }
 
 /// The stateful part of the widget.
-class ImagePageState extends State<ImagePage> {
+class SpaceJamImagePageState extends State<SpaceJamImagePage> {
   @override
   void initState() {
-    if (!ImagePage.supportedLocales.contains(widget.locale)) {
+    if (!SpaceJamImagePage.supportedLocales.contains(widget.locale)) {
       throw Exception(
         "Locale is not supported.\n"
         "To add this locale head over to\n"

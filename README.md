@@ -6,10 +6,10 @@
 - [x] SpaceJamAppBarAction
 - [x] SpaceJamButton
 - [x] SpaceJamContainer
-- [ ] SpaceJamImagePage
+- [x] SpaceJamImagePage
 - [x] SpaceJamTextStyles
-- [ ] SpaceJamTheme
-- [ ] SpaceJamPage
+- [x] SpaceJamTheme
+- [x] SpaceJamPage
 - [x] SpaceJamCollection
 - [x] SpaceJamCollectionItem
 - [ ] SpaceJamImageBox

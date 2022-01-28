@@ -13,8 +13,8 @@ void main() {
           home: SpaceJamAppBar(
             title: "title",
             subtitle: "subtitle",
-            leftAction: SpaceJamAppBarAction(icon: Icons.add),
-            rightAction: SpaceJamAppBarAction(icon: Icons.remove),
+            leftAction: SpaceJamAppBarAction(Icons.add),
+            rightAction: SpaceJamAppBarAction(Icons.remove),
           ),
         ),
       );
