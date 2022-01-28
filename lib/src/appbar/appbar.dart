@@ -10,10 +10,10 @@ import "../private/size_provider.dart";
 import "../private/min.dart";
 import "appbar_action.dart";
 
-/// The appbar widget.
-class Appbar extends StatefulWidget {
+/// The SpaceJamAppBar widget.
+class SpaceJamAppBar extends StatefulWidget {
   /// Constructor
-  const Appbar({
+  const SpaceJamAppBar({
     required this.title,
     this.subtitle,
     this.leftAction,
@@ -32,11 +32,11 @@ class Appbar extends StatefulWidget {
   /// The subtitle of the appbar.
   final String? subtitle;
 
-  /// The left tappable [AppBarAction].
-  final AppBarAction? leftAction;
+  /// The left tappable [SpaceJamAppBarAction].
+  final SpaceJamAppBarAction? leftAction;
 
-  /// The right tappable [AppBarAction].
-  final AppBarAction? rightAction;
+  /// The right tappable [SpaceJamAppBarAction].
+  final SpaceJamAppBarAction? rightAction;
 
   /// A [ScrollController] used to make the animations
   final ScrollController? controller;
@@ -49,11 +49,11 @@ class Appbar extends StatefulWidget {
   final Duration animationDuration;
 
   @override
-  AppbarState createState() => AppbarState();
+  SpaceJamAppBarState createState() => SpaceJamAppBarState();
 }
 
 /// Stateful part of the Widget.
-class AppbarState extends State<Appbar> {
+class SpaceJamAppBarState extends State<SpaceJamAppBar> {
   /// Double to store the widgets size.
   double widgetSize = 0;
 

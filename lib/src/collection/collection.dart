@@ -9,13 +9,13 @@ import "../private/min.dart";
 import "../theme/text_styles.dart";
 
 /// Display a bunch of clickable options with or without a section title.
-class Collection extends StatelessWidget {
+class SpaceJamCollection extends StatelessWidget {
   /// Constructor
-  const Collection({required this.items, Key? key, this.title})
+  const SpaceJamCollection({required this.items, Key? key, this.title})
       : super(key: key);
 
-  /// List of [CollectionItem]s to display.
-  final List<CollectionItem> items;
+  /// List of [SpaceJamCollectionItem]s to display.
+  final List<SpaceJamCollectionItem> items;
 
   /// Title of the collection
   final String? title;

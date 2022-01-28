@@ -92,11 +92,11 @@ class HomePageState extends State<HomePage> {
                   children: <Widget>[
                     const Opacity(
                       opacity: 0,
-                      child: Appbar(
+                      child: SpaceJamAppBar(
                         title: "SpaceJam",
                       ),
                     ),
-                    ContentBox(
+                    SpaceJamContainer(
                       title: "SpaceJam",
                       backgroundColor: Colors.blue,
                       children: <Widget>[
@@ -151,7 +151,7 @@ class HomePageState extends State<HomePage> {
                         const SizedBox(
                           height: 10,
                         ),
-                        Button(
+                        SpaceJamButton(
                           valueFontSize: 32,
                           titleFontSize: 24,
                           title: "Test",
@@ -178,31 +178,31 @@ class HomePageState extends State<HomePage> {
                     const SizedBox(
                       height: 0,
                     ),
-                    Collection(
+                    SpaceJamCollection(
                       title: "Collection",
-                      items: <CollectionItem>[
-                        const CollectionItem(
+                      items: <SpaceJamCollectionItem>[
+                        const SpaceJamCollectionItem(
                           backgroundColor: Colors.blue,
                           upperCaption: "caption",
                           upperValue: "value",
                           lowerCaption: "caption",
                           lowerValue: "value",
                         ),
-                        const CollectionItem(
+                        const SpaceJamCollectionItem(
                           backgroundColor: Colors.blue,
                           upperCaption: "caption",
                           upperValue: "value",
                           lowerCaption: "caption",
                           lowerValue: "value",
                         ),
-                        const CollectionItem(
+                        const SpaceJamCollectionItem(
                           backgroundColor: Colors.blue,
                           upperCaption: "caption",
                           upperValue: "value",
                           lowerCaption: "caption",
                           lowerValue: "value",
                         ),
-                        CollectionItem(
+                        SpaceJamCollectionItem(
                           backgroundColor: Colors.blue,
                           onTap: () {},
                           upperCaption: "caption",
@@ -216,10 +216,10 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Appbar(
+            SpaceJamAppBar(
               title: "SpaceJam",
               controller: _controller,
-              rightAction: const AppBarAction(
+              rightAction: const SpaceJamAppBarAction(
                 icon: Icons.search,
               ),
             ),

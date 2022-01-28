@@ -3,9 +3,9 @@ import "package:auto_size_text/auto_size_text.dart";
 import "package:flutter/material.dart";
 
 /// Custom decorated widget to display information.
-class ContentBox extends StatelessWidget {
+class SpaceJamContainer extends StatelessWidget {
   /// Constructor
-  const ContentBox({
+  const SpaceJamContainer({
     required this.title,
     this.pathToBackground,
     this.backgroundColor,

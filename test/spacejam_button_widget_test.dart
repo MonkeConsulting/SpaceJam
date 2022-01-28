@@ -5,13 +5,13 @@ import "package:flutter/material.dart";
 import "package:spacejam/spacejam.dart";
 
 void main() {
-  group("Testing the button widget", () {
-    testWidgets("Button where value is a string", (WidgetTester tester) async {
+  group("Testing the SpaceJamButton widget", () {
+    testWidgets("SpaceJamButton where value is a string", (WidgetTester tester) async {
       bool variable = false;
 
       await tester.pumpWidget(
         MaterialApp(
-          home: Button(
+          home: SpaceJamButton(
             titleFontSize: 16,
             valueFontSize: 16,
             title: "title",
@@ -36,13 +36,13 @@ void main() {
       expect(variable, true);
     });
 
-    testWidgets("Button where value is a widget", (WidgetTester tester) async {
+    testWidgets("SpaceJamButton where value is a widget", (WidgetTester tester) async {
       const Widget child = Text("Widget");
       bool variable = false;
 
       await tester.pumpWidget(
         MaterialApp(
-          home: Button(
+          home: SpaceJamButton(
             titleFontSize: 16,
             valueFontSize: 16,
             title: "title",

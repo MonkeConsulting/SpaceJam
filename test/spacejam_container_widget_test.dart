@@ -5,13 +5,14 @@ import "package:flutter/material.dart";
 import "package:spacejam/spacejam.dart";
 
 void main() {
-  group("Testing the contentBox widget", () {
-    testWidgets("Content box with child property", (WidgetTester tester) async {
+  group("Testing the SpaceJamContainer widget", () {
+    testWidgets("SpaceJamContainer with child property",
+        (WidgetTester tester) async {
       const Widget child = Text("child");
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ContentBox(
+          home: SpaceJamContainer(
             title: "title",
             backgroundColor: Colors.blue,
             child: child,
@@ -33,11 +34,11 @@ void main() {
       Text("second child of children")
     ];
 
-    testWidgets("Content box with children property",
+    testWidgets("SpaceJamContainer with children property",
         (WidgetTester tester) async {
       await tester.pumpWidget(
         const MaterialApp(
-          home: ContentBox(
+          home: SpaceJamContainer(
             title: "title",
             backgroundColor: Colors.blue,
             children: children,
