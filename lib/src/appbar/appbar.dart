@@ -24,7 +24,12 @@ class SpaceJamAppBar extends StatefulWidget {
       milliseconds: 150,
     ),
     Key? key,
-  }) : super(key: key);
+  }) : assert(
+          animated == "system" || animated == "on" || animated == "off",
+          'The property animated should be "system", "on" or "off". '
+          'Got "$animated".',
+        ),
+        super(key: key);
 
   /// The title of the appbar.
   final String title;
@@ -69,20 +74,13 @@ class SpaceJamAppBarState extends State<SpaceJamAppBar> {
   @override
   Widget build(BuildContext context) {
     late bool animated;
-    if (widget.animated != "system" &&
-        widget.animated != "on" &&
-        widget.animated != "off") {
-      throw Exception(
-        'The property animated should be "system", "on" or "off".',
-      );
+
+    if (widget.animated == "system") {
+      animated = !MediaQuery.of(context).disableAnimations;
+    } else if (widget.animated == "on") {
+      animated = true;
     } else {
-      if (widget.animated == "system") {
-        animated = !MediaQuery.of(context).disableAnimations;
-      } else if (widget.animated == "on") {
-        animated = true;
-      } else {
-        animated = false;
-      }
+      animated = false;
     }
 
     Widget subtitleWidget() {

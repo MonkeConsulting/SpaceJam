@@ -33,7 +33,7 @@ class SpaceJamPage extends StatefulWidget {
   final SpaceJamAppBarAction? appBarRightAction;
 
   /// Children for passing it down in the widget tree as content of the page.
-  final List<Widget> children;
+  final List<dynamic> children;
 
   @override
   SpaceJamPageState createState() => SpaceJamPageState();
@@ -74,6 +74,7 @@ class SpaceJamPageState extends State<SpaceJamPage> {
           SpaceJamAppBar(
             title: "SpaceJam",
             controller: _controller,
+            animated: widget.theme?.animated ?? "system",
             leftAction: widget.appBarLeftAction,
             rightAction: widget.appBarRightAction,
           ),

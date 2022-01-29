@@ -12,7 +12,7 @@
 - [x] SpaceJamPage
 - [x] SpaceJamCollection
 - [x] SpaceJamCollectionItem
-- [ ] SpaceJamImageBox
+- [x] SpaceJamImageBox
 
 ## Getting started
 

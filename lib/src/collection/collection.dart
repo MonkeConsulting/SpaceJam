@@ -22,7 +22,12 @@ class SpaceJamCollection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => items.isNotEmpty
-      ? Column(
+      ? Padding(
+    padding: EdgeInsets.only(bottom: (MediaQuery.of(context).size.width +
+        MediaQuery.of(context).size.height) /
+        2 *
+        .04,),
+    child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             title != null
@@ -46,6 +51,6 @@ class SpaceJamCollection extends StatelessWidget {
               children: items,
             ),
           ],
-        )
+        ),)
       : const Min();
 }

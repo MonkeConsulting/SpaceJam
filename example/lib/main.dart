@@ -39,84 +39,100 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) => SpaceJamPage(
         title: "SpaceJam",
         appBarRightAction: const SpaceJamAppBarAction(Icons.search),
-        children: <Widget>[
+        children: <dynamic>[
           SpaceJamContainer(
             title: "SpaceJam",
             backgroundColor: Colors.blue,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(
-                  left: (MediaQuery.of(context).size.width +
-                          MediaQuery.of(context).size.height) /
-                      2 *
-                      .02,
-                  right: (MediaQuery.of(context).size.width +
-                          MediaQuery.of(context).size.height) /
-                      2 *
-                      .02,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      "Title",
-                      style: SpaceJamTextStyles.title(context),
-                    ),
-                    Text(
-                      "Subtitle",
-                      style: SpaceJamTextStyles.titleSmall(context),
-                    ),
-                    Text(
-                      "Headline",
-                      style: SpaceJamTextStyles.headline(context),
-                    ),
-                    Text(
-                      "Subheading",
-                      style: SpaceJamTextStyles.headlineSmall(context),
-                    ),
-                    Text(
-                      "Body",
-                      style: SpaceJamTextStyles.bodyMedium(
-                        context,
-                        color: Colors.black,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: (MediaQuery.of(context).size.width +
+                            MediaQuery.of(context).size.height) /
+                        2 *
+                        .02,
+                    right: (MediaQuery.of(context).size.width +
+                            MediaQuery.of(context).size.height) /
+                        2 *
+                        .02,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "Title",
+                        style: SpaceJamTextStyles.title(context),
                       ),
-                    ),
-                    Text(
-                      "Caption",
-                      style: SpaceJamTextStyles.bodySmall(
-                        context,
-                        color: Colors.black,
+                      Text(
+                        "Subtitle",
+                        style: SpaceJamTextStyles.titleSmall(context),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SpaceJamButton(
-                valueFontSize: 32,
-                titleFontSize: 24,
-                title: "Test",
-                value: "ImageViewer",
-                background: Colors.white24,
-                action: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute<Widget>(
-                      builder: (BuildContext context) => SpaceJamImagePage(
-                        locale: const Locale("en"),
-                        image: Image.network(
-                          "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                      Text(
+                        "Headline",
+                        style: SpaceJamTextStyles.headline(context),
+                      ),
+                      Text(
+                        "Subheading",
+                        style: SpaceJamTextStyles.headlineSmall(context),
+                      ),
+                      Text(
+                        "Body",
+                        style: SpaceJamTextStyles.bodyMedium(
+                          context,
+                          color: Colors.black,
                         ),
-                        imageURL:
-                            "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
                       ),
-                    ),
-                  );
-                },
-              ),
-            ],
+                      Text(
+                        "Caption",
+                        style: SpaceJamTextStyles.bodySmall(
+                          context,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: (MediaQuery.of(context).size.width +
+                          MediaQuery.of(context).size.height) /
+                      2 *
+                      .02,
+                ),
+                SpaceJamImageBox(
+                  Image.network(
+                    "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                  ),
+                ),
+                SpaceJamButton(
+                  valueFontSize: 32,
+                  titleFontSize: 24,
+                  title: "Test",
+                  value: "ImageViewer",
+                  background: Colors.white24,
+                  action: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<Widget>(
+                        builder: (BuildContext context) => SpaceJamImagePage(
+                          Image.network(
+                            "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                          ),
+                          imageURL:
+                              "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          SpaceJamImageBox(
+            Image.network(
+              "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+            ),
+            isInteractive: false,
           ),
           SpaceJamCollection(
             title: "Collection",

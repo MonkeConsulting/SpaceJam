@@ -16,6 +16,7 @@ ContentBox:
 - Renamed `ContentBox` to `SpaceJamContainer`.
 ImagePage:
 - Renamed `ImagePage` to `SpaceJamImagePage`.
+- `image` is now an unnamed parameter.
 # 0.2.2
 * Bugfixes
 # 0.2.1

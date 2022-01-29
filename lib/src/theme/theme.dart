@@ -9,7 +9,11 @@ class SpaceJamTheme {
     this.pathToBackground,
     this.color = Colors.red,
     this.animated,
-  });
+  }) : assert(
+  animated == "system" || animated == "on" || animated == "off",
+  'The property animated should be "system", "on" or "off". '
+  'Got "$animated".',
+  );
 
   /// Locale for the package's translations.
   Locale? locale;
@@ -23,15 +27,6 @@ class SpaceJamTheme {
   /// If a [ScrollController] is presented the Appbar can be animated.
   /// Default to system preferences.
   final String? animated;
-
-  /// Validate the parameters.
-  void validate() {
-    if (animated != "system" && animated != "on" && animated != "off") {
-      throw Exception(
-        'The property animated should be "system", "on" or "off".',
-      );
-    }
-  }
 
   /// TextThemes used in SpaceJam.
   static TextTheme textTheme() => const TextTheme(

@@ -2,17 +2,22 @@
 import "package:auto_size_text/auto_size_text.dart";
 import "package:flutter/material.dart";
 
-/// Custom decorated widget to display information.
+// widget
+import "container_child.dart";
+
+/// [StatelessWidget] used inside the [SpaceJamContainer].
 class SpaceJamContainer extends StatelessWidget {
   /// Constructor
   const SpaceJamContainer({
     required this.title,
+    required this.child,
     this.pathToBackground,
     this.backgroundColor,
-    this.child,
-    this.children,
     Key? key,
   }) : super(key: key);
+
+  /// Child to pass on.
+  final Widget child;
 
   /// Title displayed at the top.
   final String title;
@@ -23,24 +28,18 @@ class SpaceJamContainer extends StatelessWidget {
   /// Background color.
   final Color? backgroundColor;
 
-  /// Child of the widget.
-  final Widget? child;
-
-  /// Children of the widget.
-  final List<Widget>? children;
-
   @override
   Widget build(BuildContext context) {
     final AutoSizeGroup contentBigTextSize = AutoSizeGroup();
 
-    return Padding(
+    return SpaceJamContainerChild(child: Padding(
       padding: EdgeInsets.only(
         top: (MediaQuery.of(context).size.width +
-                MediaQuery.of(context).size.height) /
+            MediaQuery.of(context).size.height) /
             2 *
             .04,
         bottom: (MediaQuery.of(context).size.width +
-                MediaQuery.of(context).size.height) /
+            MediaQuery.of(context).size.height) /
             2 *
             .04,
       ),
@@ -53,9 +52,9 @@ class SpaceJamContainer extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(
                   left: (MediaQuery.of(context).size.width +
-                              MediaQuery.of(context).size.height) /
-                          2 *
-                          .04 +
+                      MediaQuery.of(context).size.height) /
+                      2 *
+                      .04 +
                       MediaQuery.of(context).size.width * .05,
                 ),
                 child: AutoSizeText(
@@ -80,7 +79,7 @@ class SpaceJamContainer extends StatelessWidget {
                     borderRadius: BorderRadius.all(
                       Radius.circular(
                         (MediaQuery.of(context).size.width +
-                                MediaQuery.of(context).size.height) /
+                            MediaQuery.of(context).size.height) /
                             2 *
                             .04,
                       ),
@@ -90,30 +89,18 @@ class SpaceJamContainer extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(
                       (MediaQuery.of(context).size.width +
-                              MediaQuery.of(context).size.height) /
+                          MediaQuery.of(context).size.height) /
                           2 *
                           .02,
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: child != null
-                          ? <Widget>[child!]
-                          : children != null
-                              ? children!
-                              : <ErrorWidget>[
-                                  ErrorWidget(
-                                    "You must provide a Child or a Children "
-                                    "property is not provided",
-                                  )
-                                ],
-                    ),
+                    child: child,
                   ),
                 ),
               ),
             ],
           ),
         ],
-      ),
+      ),),
     );
   }
 }
