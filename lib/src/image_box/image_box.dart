@@ -3,7 +3,7 @@ import "package:flutter/material.dart";
 // import "package:flutter/services.dart";
 
 // pages
-import "../imagepage/image_page.dart";
+import "../image_page/image_page.dart";
 import "../container/container_child.dart";
 import "../private/min.dart";
 
