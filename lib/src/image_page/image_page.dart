@@ -5,24 +5,42 @@ import "package:flutter/services.dart";
 // widgets
 import "../private/min.dart";
 
+/// Localization strings
 Map<String, Map<String, String>> _localization = <String, Map<String, String>>{
   "en": <String, String>{
     "back": "Back",
     "copyURL": "Copy URL",
     "urlCopied": "URL copied!",
     "ok": "OK",
+  },
+  "hu": <String, String>{
+    "back": "Vissza",
+    "copyURL": "URL másolása",
+    "urlCopied": "URL kimásolva!",
+    "ok": "OK",
   }
 };
 
+/// List of supported locales.
+List<Locale> _supportedLocales = const <Locale>[
+  Locale("en"),
+  Locale("hu"),
+];
+
 /// Fullscreen image shower.
-class ImagePage extends StatefulWidget {
+class SpaceJamImagePage extends StatefulWidget {
   /// Constructor
-  const ImagePage({
-    required this.image,
-    this.locale = const Locale("en", ""),
+  SpaceJamImagePage(
+    this.image, {
+    this.locale = const Locale("en"),
     this.imageURL,
     Key? key,
-  }) : super(key: key);
+  })  : assert(
+            _supportedLocales.contains(locale),
+            "Locale is not supported.\n"
+            "To add this locale head over to\n"
+            "https://github.com/PrismForDart/SpaceJam/blob/main/doc/localisation.md.",),
+        super(key: key);
 
   /// Image Widget
   final Image image;
@@ -33,30 +51,14 @@ class ImagePage extends StatefulWidget {
   /// Locale used in localization.
   final Locale? locale;
 
-  /// List of supported locales.
-  static List<Locale> supportedLocales = const <Locale>[
-    Locale("en", ""),
-    Locale("de"),
-    Locale("da"),
-    Locale("hu"),
-  ];
-
   @override
-  ImagePageState createState() => ImagePageState();
+  SpaceJamImagePageState createState() => SpaceJamImagePageState();
 }
 
 /// The stateful part of the widget.
-class ImagePageState extends State<ImagePage> {
+class SpaceJamImagePageState extends State<SpaceJamImagePage> {
   @override
   void initState() {
-    if (!ImagePage.supportedLocales.contains(widget.locale)) {
-      throw Exception(
-        "Locale is not supported.\n"
-        "To add this locale head over to\n"
-        "https://github.com/PrismForDart/SpaceJam/blob/main/doc/localisation.md.",
-      );
-    }
-
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle.dark.copyWith(
         statusBarColor: Colors.white,

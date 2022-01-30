@@ -13,9 +13,9 @@ final AutoSizeGroup collectionItemValueAutoSizeGroup = AutoSizeGroup();
 final AutoSizeGroup collectionItemCaptionAutoSizeGroup = AutoSizeGroup();
 
 /// Collection item is a widget to represent an individual from a group.
-class CollectionItem extends StatelessWidget {
+class SpaceJamCollectionItem extends StatelessWidget {
   /// Constructor
-  const CollectionItem({
+  const SpaceJamCollectionItem({
     required this.upperValue,
     Key? key,
     this.upperCaption,

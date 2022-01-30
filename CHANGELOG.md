@@ -1,6 +1,22 @@
 # 0.3.0
+* Added Content
 * Added ContentItem
+* Added SpaceJamPage
 * Added `duration` property to Appbar
+
+#### Breaking changes:
+Appbar:
+- Renamed `Appbar` to `SpaceJamAppBar`. 
+AppBarAction:
+- Renamed `AppBarAction` to `SpaceJamAppBarAction`.
+- `icon` is now an unnamed parameter.
+Button:
+- Renamed `Button` to `SpaceJamButton`.
+ContentBox:
+- Renamed `ContentBox` to `SpaceJamContainer`.
+ImagePage:
+- Renamed `ImagePage` to `SpaceJamImagePage`.
+- `image` is now an unnamed parameter.
 # 0.2.2
 * Bugfixes
 # 0.2.1
@@ -14,7 +30,7 @@ Appbar:
 * More pub points
 # 0.1.0
 * Added Appbar
-* Added AppbarAction
+* Added AppBarAction
 * Added Button
 * Added ContentBox
 * Added SpaceJamTextStyles

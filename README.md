@@ -2,18 +2,17 @@
 [![Test SpaceJam package](https://github.com/PrismForDart/SpaceJam/actions/workflows/test_package.yml/badge.svg)](https://github.com/PrismForDart/SpaceJam/actions/workflows/test_package.yml)
 
 ## Features
-
-- [x] SpaceJam Appbar
-- [x] SpaceJam AppbarAction
-- [x] SpaceJam Button
-- [x] SpaceJam ContentBox
-- [x] SpaceJam ImagePage
-- [x] SpaceJam TextStyles
-- [x] SpaceJamApp Theme
-- [ ] SpaceJamApp
-- [ ] SpaceJam Collection
-- [x] SpaceJam CollectionItem
-- [ ] ImageBox
+- [x] SpaceJamAppBar
+- [x] SpaceJamAppBarAction
+- [x] SpaceJamButton
+- [x] SpaceJamContainer
+- [x] SpaceJamImagePage
+- [x] SpaceJamTextStyles
+- [x] SpaceJamTheme
+- [x] SpaceJamPage
+- [x] SpaceJamCollection
+- [x] SpaceJamCollectionItem
+- [x] SpaceJamImageBox
 
 ## Getting started
 
@@ -24,7 +23,7 @@ SpaceJam is an open-sourced internal package for the visuals of the Mira Collect
 Add `spacejam` to your dependencies.yaml.
 ```yaml
 dependencies:
-  spacejam: ^0.2.1
+  spacejam: ^0.3.0
 ```
 
 Run pub get in your terminal.

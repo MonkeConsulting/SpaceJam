@@ -18,43 +18,7 @@ class Example extends StatelessWidget {
         title: "SpaceJam example",
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          // TextThemes
-          textTheme: const TextTheme(
-            titleMedium: TextStyle(
-              fontWeight: FontWeight.bold,
-              /* fontSize: (MediaQuery.of(context).size.width +
-                 MediaQuery.of(context).size.height) /
-                 2 * .06,
-              */
-              color: Colors.black,
-            ),
-            titleSmall: TextStyle(
-              /* fontSize: (MediaQuery.of(context).size.width +
-              MediaQuery.of(context).size.height) /
-              2 * .04,
-          */
-              color: Colors.black,
-            ),
-            headlineMedium: TextStyle(
-              //fontSize: MediaQuery.of(context).size.width * .08,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
-            headlineSmall: TextStyle(
-              //fontSize: MediaQuery.of(context).size.width * .05,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-            ),
-            bodyMedium: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              //fontSize: MediaQuery.of(context).size.height * .025,
-            ),
-            bodySmall: TextStyle(
-              color: Colors.white70,
-              //fontSize: MediaQuery.of(context).size.height * .02,
-            ),
-          ),
+          textTheme: SpaceJamTheme.textTheme(),
         ),
         home: const HomePage(),
       );
@@ -71,10 +35,142 @@ class HomePage extends StatefulWidget {
 
 /// Stateful part of the Widget.
 class HomePageState extends State<HomePage> {
-  final ScrollController _controller = ScrollController();
-
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => SpaceJamPage(
+        title: "SpaceJam",
+        appBarRightAction: const SpaceJamAppBarAction(Icons.search),
+        children: <dynamic>[
+          SpaceJamContainer(
+            title: "SpaceJam",
+            backgroundColor: Colors.blue,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: (MediaQuery.of(context).size.width +
+                            MediaQuery.of(context).size.height) /
+                        2 *
+                        .02,
+                    right: (MediaQuery.of(context).size.width +
+                            MediaQuery.of(context).size.height) /
+                        2 *
+                        .02,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "Title",
+                        style: SpaceJamTextStyles.title(context),
+                      ),
+                      Text(
+                        "Subtitle",
+                        style: SpaceJamTextStyles.titleSmall(context),
+                      ),
+                      Text(
+                        "Headline",
+                        style: SpaceJamTextStyles.headline(context),
+                      ),
+                      Text(
+                        "Subheading",
+                        style: SpaceJamTextStyles.headlineSmall(context),
+                      ),
+                      Text(
+                        "Body",
+                        style: SpaceJamTextStyles.bodyMedium(
+                          context,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Text(
+                        "Caption",
+                        style: SpaceJamTextStyles.bodySmall(
+                          context,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: (MediaQuery.of(context).size.width +
+                          MediaQuery.of(context).size.height) /
+                      2 *
+                      .02,
+                ),
+                SpaceJamImageBox(
+                  Image.network(
+                    "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                  ),
+                ),
+                SpaceJamButton(
+                  valueFontSize: 32,
+                  titleFontSize: 24,
+                  title: "Test",
+                  value: "ImageViewer",
+                  background: Colors.white24,
+                  action: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<Widget>(
+                        builder: (BuildContext context) => SpaceJamImagePage(
+                          Image.network(
+                            "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                          ),
+                          imageURL:
+                              "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ),
+          SpaceJamImageBox(
+            Image.network(
+              "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+            ),
+            isInteractive: false,
+          ),
+          SpaceJamCollection(
+            title: "Collection",
+            items: <SpaceJamCollectionItem>[
+              const SpaceJamCollectionItem(
+                backgroundColor: Colors.blue,
+                upperCaption: "caption",
+                upperValue: "value",
+                lowerCaption: "caption",
+                lowerValue: "value",
+              ),
+              const SpaceJamCollectionItem(
+                backgroundColor: Colors.blue,
+                upperCaption: "caption",
+                upperValue: "value",
+                lowerCaption: "caption",
+                lowerValue: "value",
+              ),
+              const SpaceJamCollectionItem(
+                backgroundColor: Colors.blue,
+                upperCaption: "caption",
+                upperValue: "value",
+                lowerCaption: "caption",
+                lowerValue: "value",
+              ),
+              SpaceJamCollectionItem(
+                backgroundColor: Colors.blue,
+                onTap: () {},
+                upperCaption: "caption",
+                upperValue: "value",
+                lowerCaption: "caption",
+                lowerValue: "value",
+              ),
+            ],
+          ),
+        ],
+      );
+  /*Scaffold(
         backgroundColor: Colors.white,
         body: Stack(
           children: <Widget>[
@@ -92,11 +188,11 @@ class HomePageState extends State<HomePage> {
                   children: <Widget>[
                     const Opacity(
                       opacity: 0,
-                      child: Appbar(
+                      child: SpaceJamAppBar(
                         title: "SpaceJam",
                       ),
                     ),
-                    ContentBox(
+                    SpaceJamContainer(
                       title: "SpaceJam",
                       backgroundColor: Colors.blue,
                       children: <Widget>[
@@ -151,7 +247,7 @@ class HomePageState extends State<HomePage> {
                         const SizedBox(
                           height: 10,
                         ),
-                        Button(
+                        SpaceJamButton(
                           valueFontSize: 32,
                           titleFontSize: 24,
                           title: "Test",
@@ -175,34 +271,31 @@ class HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 0,
-                    ),
-                    Collection(
+                    SpaceJamCollection(
                       title: "Collection",
-                      items: <CollectionItem>[
-                        const CollectionItem(
+                      items: <SpaceJamCollectionItem>[
+                        const SpaceJamCollectionItem(
                           backgroundColor: Colors.blue,
                           upperCaption: "caption",
                           upperValue: "value",
                           lowerCaption: "caption",
                           lowerValue: "value",
                         ),
-                        const CollectionItem(
+                        const SpaceJamCollectionItem(
                           backgroundColor: Colors.blue,
                           upperCaption: "caption",
                           upperValue: "value",
                           lowerCaption: "caption",
                           lowerValue: "value",
                         ),
-                        const CollectionItem(
+                        const SpaceJamCollectionItem(
                           backgroundColor: Colors.blue,
                           upperCaption: "caption",
                           upperValue: "value",
                           lowerCaption: "caption",
                           lowerValue: "value",
                         ),
-                        CollectionItem(
+                        SpaceJamCollectionItem(
                           backgroundColor: Colors.blue,
                           onTap: () {},
                           upperCaption: "caption",
@@ -216,14 +309,14 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Appbar(
+            SpaceJamAppBar(
               title: "SpaceJam",
               controller: _controller,
-              rightAction: const AppBarAction(
+              rightAction: const SpaceJamAppBarAction(
                 icon: Icons.search,
               ),
             ),
           ],
         ),
-      );
+      );*/
 }

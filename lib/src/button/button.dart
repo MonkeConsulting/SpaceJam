@@ -17,7 +17,7 @@ class AutoSizeTextStyle {
   final AutoSizeGroup? group;
 }
 
-/// Class to store two styling paramters of an [Icon].
+/// Class to store two styling parameters of an [Icon].
 class IconStyle {
   /// Constructor
   const IconStyle({this.size = 24, this.color});
@@ -30,9 +30,9 @@ class IconStyle {
 }
 
 /// The custom themed button used across the app.
-class Button extends StatelessWidget {
+class SpaceJamButton extends StatelessWidget {
   /// Constructor
-  const Button({
+  const SpaceJamButton({
     required this.valueFontSize,
     required this.titleFontSize,
     this.background = Colors.white12,

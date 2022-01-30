@@ -4,18 +4,17 @@ import "package:flutter/material.dart";
 // widgets
 import "appbar.dart";
 
-/// An icon with onTap event used in the [Appbar].
-class AppBarAction extends StatelessWidget {
+/// An icon with onTap event used in the [SpaceJamAppBar].
+class SpaceJamAppBarAction extends StatelessWidget {
   /// Constructor
-  const AppBarAction({
-    required this.icon,
+  const SpaceJamAppBarAction(this.icon, {
     this.tooltip = "",
     this.action,
     Key? key,
   }) : super(key: key);
 
-  /// Icon of the action.
-  final IconData icon;
+  /// [Icon] for the action.
+  final IconData? icon;
 
   /// Tooltip when tapping the icon.
   final String? tooltip;

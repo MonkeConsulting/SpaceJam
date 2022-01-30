@@ -10,10 +10,10 @@ import "../private/size_provider.dart";
 import "../private/min.dart";
 import "appbar_action.dart";
 
-/// The appbar widget.
-class Appbar extends StatefulWidget {
+/// The SpaceJamAppBar widget.
+class SpaceJamAppBar extends StatefulWidget {
   /// Constructor
-  const Appbar({
+  const SpaceJamAppBar({
     required this.title,
     this.subtitle,
     this.leftAction,
@@ -24,7 +24,12 @@ class Appbar extends StatefulWidget {
       milliseconds: 150,
     ),
     Key? key,
-  }) : super(key: key);
+  }) : assert(
+          animated == "system" || animated == "on" || animated == "off",
+          'The property animated should be "system", "on" or "off". '
+          'Got "$animated".',
+        ),
+        super(key: key);
 
   /// The title of the appbar.
   final String title;
@@ -32,11 +37,11 @@ class Appbar extends StatefulWidget {
   /// The subtitle of the appbar.
   final String? subtitle;
 
-  /// The left tappable [AppBarAction].
-  final AppBarAction? leftAction;
+  /// The left tappable [SpaceJamAppBarAction].
+  final SpaceJamAppBarAction? leftAction;
 
-  /// The right tappable [AppBarAction].
-  final AppBarAction? rightAction;
+  /// The right tappable [SpaceJamAppBarAction].
+  final SpaceJamAppBarAction? rightAction;
 
   /// A [ScrollController] used to make the animations
   final ScrollController? controller;
@@ -49,11 +54,11 @@ class Appbar extends StatefulWidget {
   final Duration animationDuration;
 
   @override
-  AppbarState createState() => AppbarState();
+  SpaceJamAppBarState createState() => SpaceJamAppBarState();
 }
 
 /// Stateful part of the Widget.
-class AppbarState extends State<Appbar> {
+class SpaceJamAppBarState extends State<SpaceJamAppBar> {
   /// Double to store the widgets size.
   double widgetSize = 0;
 
@@ -69,20 +74,13 @@ class AppbarState extends State<Appbar> {
   @override
   Widget build(BuildContext context) {
     late bool animated;
-    if (widget.animated != "system" &&
-        widget.animated != "on" &&
-        widget.animated != "off") {
-      throw Exception(
-        'The property animated should be "system", "on" or "off".',
-      );
+
+    if (widget.animated == "system") {
+      animated = !MediaQuery.of(context).disableAnimations;
+    } else if (widget.animated == "on") {
+      animated = true;
     } else {
-      if (widget.animated == "system") {
-        animated = !MediaQuery.of(context).disableAnimations;
-      } else if (widget.animated == "on") {
-        animated = true;
-      } else {
-        animated = false;
-      }
+      animated = false;
     }
 
     Widget subtitleWidget() {

@@ -10,11 +10,11 @@ void main() {
     testWidgets("AppBar", (WidgetTester tester) async {
       await tester.pumpWidget(
         const MaterialApp(
-          home: Appbar(
+          home: SpaceJamAppBar(
             title: "title",
             subtitle: "subtitle",
-            leftAction: AppBarAction(icon: Icons.add),
-            rightAction: AppBarAction(icon: Icons.remove),
+            leftAction: SpaceJamAppBarAction(Icons.add),
+            rightAction: SpaceJamAppBarAction(Icons.remove),
           ),
         ),
       );
