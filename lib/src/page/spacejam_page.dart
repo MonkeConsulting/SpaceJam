@@ -13,13 +13,18 @@ class SpaceJamPage extends StatefulWidget {
     required this.children,
     required this.title,
     Key? key,
-    this.theme,
+    this.animated = "system",
     this.appBarLeftAction,
     this.appBarRightAction,
-  }) : super(key: key);
+  }) : assert(
+  animated == "system" || animated == "on" || animated == "off",
+  'The property animated should be "system", "on" or "off". '
+      'Got "$animated".',
+  ),
+        super(key: key);
 
   /// [SpaceJamTheme] to easily import the looks.
-  final SpaceJamTheme? theme;
+  final String animated;
 
   /// Title of the page.
   final String title;
@@ -74,7 +79,7 @@ class SpaceJamPageState extends State<SpaceJamPage> {
           SpaceJamAppBar(
             title: "SpaceJam",
             controller: _controller,
-            animated: widget.theme?.animated ?? "system",
+            animated: widget.animated,
             leftAction: widget.appBarLeftAction,
             rightAction: widget.appBarRightAction,
           ),

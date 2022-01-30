@@ -1,33 +1,10 @@
+//ignore_for_file:avoid_classes_with_only_static_members
+
 // Flutter
 import "package:flutter/material.dart";
 
 /// Manager of the SpaceJam package. Used in SpaceJamApp.
 class SpaceJamTheme {
-  /// Constructor
-  SpaceJamTheme({
-    this.locale,
-    this.pathToBackground,
-    this.color = Colors.red,
-    this.animated,
-  }) : assert(
-  animated == "system" || animated == "on" || animated == "off",
-  'The property animated should be "system", "on" or "off". '
-  'Got "$animated".',
-  );
-
-  /// Locale for the package's translations.
-  Locale? locale;
-
-  /// Path to the background used across the package.
-  String? pathToBackground;
-
-  /// UI color used across the package.
-  Color? color;
-
-  /// If a [ScrollController] is presented the Appbar can be animated.
-  /// Default to system preferences.
-  final String? animated;
-
   /// TextThemes used in SpaceJam.
   static TextTheme textTheme() => const TextTheme(
         titleMedium: TextStyle(
