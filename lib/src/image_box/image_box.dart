@@ -70,7 +70,7 @@ class SpaceJamImageBox extends StatelessWidget {
           bottom: (MediaQuery.of(context).size.width +
                   MediaQuery.of(context).size.height) /
               2 *
-              .02,
+              (SpaceJamContainerChild.of(context) ? .0 : .02),
         ),
         child: Container(
           decoration: BoxDecoration(

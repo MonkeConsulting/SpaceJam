@@ -20,6 +20,7 @@ class Example extends StatelessWidget {
           primarySwatch: Colors.blue,
           textTheme: SpaceJamTheme.textTheme(),
         ),
+        debugShowCheckedModeBanner: false,
         home: const HomePage(),
       );
 }
@@ -104,11 +105,17 @@ class HomePageState extends State<HomePage> {
                     "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
                   ),
                 ),
+                SizedBox(
+                  height: (MediaQuery.of(context).size.width +
+                      MediaQuery.of(context).size.height) /
+                      2 *
+                      .02,
+                ),
                 SpaceJamButton(
                   valueFontSize: 32,
                   titleFontSize: 24,
                   title: "Test",
-                  value: "ImageViewer",
+                  value: "ImagePage",
                   background: Colors.white24,
                   action: () {
                     Navigator.push(
@@ -137,34 +144,34 @@ class HomePageState extends State<HomePage> {
           SpaceJamCollection(
             title: "Collection",
             items: <SpaceJamCollectionItem>[
-              const SpaceJamCollectionItem(
+              SpaceJamCollectionItem(
                 backgroundColor: Colors.blue,
-                upperCaption: "caption",
-                upperValue: "value",
-                lowerCaption: "caption",
-                lowerValue: "value",
+                upperCaption: "1st",
+                upperValue: "Item",
+                lowerCaption: "With",
+                lowerValue: "Action",
+                onTap: () {},
               ),
               const SpaceJamCollectionItem(
                 backgroundColor: Colors.blue,
-                upperCaption: "caption",
-                upperValue: "value",
-                lowerCaption: "caption",
-                lowerValue: "value",
+                upperValue: "Item",
+                lowerCaption: "Without",
+                lowerValue: "Action",
               ),
               const SpaceJamCollectionItem(
                 backgroundColor: Colors.blue,
-                upperCaption: "caption",
-                upperValue: "value",
-                lowerCaption: "caption",
-                lowerValue: "value",
+                upperCaption: "3rd",
+                upperValue: "Item",
+                lowerCaption: "Without",
+                lowerValue: "Action",
               ),
               SpaceJamCollectionItem(
                 backgroundColor: Colors.blue,
                 onTap: () {},
-                upperCaption: "caption",
-                upperValue: "value",
-                lowerCaption: "caption",
-                lowerValue: "value",
+                upperCaption: "4th",
+                upperValue: "Item",
+                lowerCaption: "With",
+                lowerValue: "Action",
               ),
             ],
           ),
