@@ -70,7 +70,7 @@ class SpaceJamImageBox extends StatelessWidget {
           bottom: (MediaQuery.of(context).size.width +
                   MediaQuery.of(context).size.height) /
               2 *
-              (SpaceJamContainerChild.of(context) ? .0 : .04),
+              (SpaceJamContainerChild.of(context) ? .0 : .02),
         ),
         child: Container(
           decoration: BoxDecoration(
@@ -112,7 +112,10 @@ class SpaceJamImageBox extends StatelessWidget {
               child: onTap != null || isInteractive == true
                   ? Tooltip(
                       message: tooltip ??
-                          _localization[locale?.languageCode]!["fullscreen"],
+                          _localization[(_supportedLocales.contains(locale)
+                                  ? locale
+                                  : _supportedLocales[0])!
+                              .languageCode]!["fullscreen"],
                       child: Padding(
                         padding: EdgeInsets.all(
                           (MediaQuery.of(context).size.width +

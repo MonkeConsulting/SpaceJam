@@ -37,6 +37,7 @@ class SpaceJamButton extends StatelessWidget {
     required this.valueFontSize,
     required this.titleFontSize,
     this.background = Colors.white12,
+    this.pathToBackground,
     this.valueTextStyle = const TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.bold,
@@ -55,6 +56,9 @@ class SpaceJamButton extends StatelessWidget {
 
   /// Background color of the image.
   final Color background;
+
+  /// Path to the background image.
+  final String? pathToBackground;
 
   /// Title of the button.
   final String? title;
@@ -120,6 +124,9 @@ class SpaceJamButton extends StatelessWidget {
               ),
             ),
             color: background,
+            image: pathToBackground != null
+                ? DecorationImage(image: AssetImage(pathToBackground!))
+                : null,
           ),
           child: Padding(
             padding: EdgeInsets.all(

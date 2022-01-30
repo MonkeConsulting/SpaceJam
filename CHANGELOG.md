@@ -1,8 +1,13 @@
+# 1.0.2
+* Bugfixes
+* Default locale if locale is not supported.
+# 1.0.1
+* Added `pathToBackground` property to SpaceJamButton.
 # 1.0.0
-* Added Content
-* Added ContentItem
-* Added SpaceJamPage
-* Added `duration` property to Appbar
+* Added Content.
+* Added ContentItem.
+* Added SpaceJamPage.
+* Added `duration` property to SpaceJamAppBar.
 
 #### Breaking changes:
 Appbar:
@@ -27,11 +32,11 @@ ImagePage:
 Appbar:
 - `background` is replaced with `pathToBackground`.
 # 0.1.1
-* More pub points
+* More pub points.
 # 0.1.0
-* Added Appbar
-* Added AppBarAction
-* Added Button
-* Added ContentBox
-* Added SpaceJamTextStyles
-* Added SpaceJamTheme
+* Added Appbar.
+* Added AppBarAction.
+* Added Button.
+* Added ContentBox.
+* Added SpaceJamTextStyles.
+* Added SpaceJamTheme.

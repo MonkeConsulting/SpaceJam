@@ -99,7 +99,11 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  tooltip: _localization[widget.locale?.languageCode]!["back"],
+                  tooltip: _localization[
+                      (_supportedLocales.contains(widget.locale)
+                              ? widget.locale
+                              : _supportedLocales[0])!
+                          .languageCode]!["back"],
                   child: Icon(
                     Icons.arrow_back_rounded,
                     size: MediaQuery.of(context).size.width * .075,
@@ -127,19 +131,28 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               content: Text(
-                                _localization[widget.locale?.languageCode]![
-                                    "urlCopied"]!,
+                                _localization[
+                                    (_supportedLocales.contains(widget.locale)
+                                            ? widget.locale
+                                            : _supportedLocales[0])!
+                                        .languageCode]!["urlCopied"]!,
                               ),
                               action: SnackBarAction(
                                 label: _localization[
-                                    widget.locale?.languageCode]!["ok"]!,
+                                    (_supportedLocales.contains(widget.locale)
+                                            ? widget.locale
+                                            : _supportedLocales[0])!
+                                        .languageCode]!["ok"]!,
                                 onPressed: () {},
                               ),
                             ),
                           );
                         },
-                        tooltip: _localization[widget.locale?.languageCode]![
-                            "copyURL"],
+                        tooltip:
+                        _localization[(_supportedLocales.contains(widget.locale)
+                            ? widget.locale
+                            : _supportedLocales[0])!
+                            .languageCode]!["copyURL"],
                         child: Icon(
                           Icons.link,
                           size: MediaQuery.of(context).size.width * .075,
