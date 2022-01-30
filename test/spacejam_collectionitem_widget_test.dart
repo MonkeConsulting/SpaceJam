@@ -65,8 +65,11 @@ void main() {
   testWidgets("SpaceJamCollectionItem with tooltip.",
       (WidgetTester tester) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: SpaceJamCollectionItem(
+      MaterialApp(
+        theme: ThemeData(
+          textTheme: SpaceJamTheme.textTheme(),
+        ),
+        home: const SpaceJamCollectionItem(
           upperValue: "upperValue",
           tooltip: "tooltip",
         ),
