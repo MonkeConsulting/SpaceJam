@@ -32,6 +32,7 @@ class SpaceJamImageBox extends StatelessWidget {
     Key? key,
     this.imageURL,
     this.onTap,
+    this.tooltip,
     this.isInteractive = true,
     this.locale = const Locale("en"),
   })  : assert(
@@ -52,6 +53,9 @@ class SpaceJamImageBox extends StatelessWidget {
   /// Action when clicked.
   /// This will disable the default actions.
   final VoidCallback? onTap;
+
+  /// Tooltip.
+  final String? tooltip;
 
   /// A boolean which controls the default actions.
   /// Disabled id [onTap] is used.
@@ -89,11 +93,11 @@ class SpaceJamImageBox extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: GestureDetector(
               onTap: () {
+                // TODO(KristofKekesi): Do the haptics.
+                // HapticFeedback.selectionClick();
                 if (onTap != null) {
                   onTap;
                 } else if (isInteractive) {
-                  // TODO(KristofKekesi): do the haptics.
-                  // HapticFeedback.selectionClick();
                   Navigator.push(
                     context,
                     MaterialPageRoute<Widget>(
@@ -105,22 +109,25 @@ class SpaceJamImageBox extends StatelessWidget {
                   );
                 }
               },
-              child: onTap != null || isInteractive == true ? Tooltip(
-                message: _localization[locale?.languageCode]!["fullscreen"],
-                child: Padding(
-                  padding: EdgeInsets.all(
-                    (MediaQuery.of(context).size.width +
-                            MediaQuery.of(context).size.height) /
-                        2 *
-                        .03,
-                  ),
-                  child: Icon(
-                    Icons.fullscreen,
-                    color: Colors.white,
-                    size: MediaQuery.of(context).size.width * .075,
-                  ),
-                ),
-              ) : const Min(),
+              child: onTap != null || isInteractive == true
+                  ? Tooltip(
+                      message: tooltip ??
+                          _localization[locale?.languageCode]!["fullscreen"],
+                      child: Padding(
+                        padding: EdgeInsets.all(
+                          (MediaQuery.of(context).size.width +
+                                  MediaQuery.of(context).size.height) /
+                              2 *
+                              .03,
+                        ),
+                        child: Icon(
+                          Icons.fullscreen,
+                          color: Colors.white,
+                          size: MediaQuery.of(context).size.width * .075,
+                        ),
+                      ),
+                    )
+                  : const Min(),
             ),
           ),
         ),

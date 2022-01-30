@@ -5,8 +5,8 @@ import "package:flutter/material.dart";
 import "package:spacejam/spacejam.dart";
 
 void main() {
-  group("Testing the SpaceJamContainer widget", () {
-    testWidgets("SpaceJamContainer with child property",
+  group("Testing the SpaceJamContainer widget.", () {
+    testWidgets("SpaceJamContainer with child property.",
         (WidgetTester tester) async {
       const Widget child = Text("child");
 
