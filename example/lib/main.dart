@@ -135,6 +135,27 @@ class HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          SpaceJamButton(
+            valueFontSize: 32,
+            titleFontSize: 24,
+            title: "Test",
+            value: "ImagePage",
+            background: Colors.blue,
+            action: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => SpaceJamImagePage(
+                    Image.network(
+                      "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                    ),
+                    imageURL:
+                    "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                  ),
+                ),
+              );
+            },
+          ),
           SpaceJamImageBox(
             Image.network(
               "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",

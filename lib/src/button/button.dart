@@ -3,6 +3,7 @@ import "package:auto_size_text/auto_size_text.dart";
 import "package:flutter/material.dart";
 
 // Widgets
+import "../container/container_child.dart";
 import "../private/min.dart";
 
 /// Class to store the two styling parameters of the [AutoSizeText].
@@ -98,19 +99,22 @@ class SpaceJamButton extends StatelessWidget {
 
     return GestureDetector(
       onTap: action,
-      child: Container(
-        width: MediaQuery.of(context).size.width * .9 -
-            (MediaQuery.of(context).size.width +
-                    MediaQuery.of(context).size.height) /
-                2 *
-                .02,
+      child: Padding(padding: EdgeInsets.only(
+        bottom: (MediaQuery.of(context).size.width +
+        MediaQuery.of(context).size.height) /
+    2 *
+    (SpaceJamContainerChild.of(context) ? .0 : .04),),
+    child: Container(
+        width: SpaceJamContainerChild.of(context)
+            ? null
+            : MediaQuery.of(context).size.width * .9,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
             Radius.circular(
               (MediaQuery.of(context).size.width +
                       MediaQuery.of(context).size.height) /
                   2 *
-                  .02,
+                  (SpaceJamContainerChild.of(context) ? .02 : .04),
             ),
           ),
           color: background,
@@ -120,7 +124,7 @@ class SpaceJamButton extends StatelessWidget {
             (MediaQuery.of(context).size.width +
                     MediaQuery.of(context).size.height) /
                 2 *
-                .02,
+                (SpaceJamContainerChild.of(context) ? .02 : .03),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,22 +140,14 @@ class SpaceJamButton extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .9 -
-                        (MediaQuery.of(context).size.width +
-                                MediaQuery.of(context).size.height) /
-                            2 *
-                            .04 -
-                        MediaQuery.of(context).size.width * .175,
-                    child: value is String
-                        ? AutoSizeText(
-                            value,
-                            style: primaryFinalTextStyle,
-                            maxLines: autoSizeTextStyle.maxLines,
-                            group: autoSizeTextStyle.group,
-                          )
-                        : value,
-                  ),
+                  value is String
+                      ? AutoSizeText(
+                          value,
+                          style: primaryFinalTextStyle,
+                          maxLines: autoSizeTextStyle.maxLines,
+                          group: autoSizeTextStyle.group,
+                        )
+                      : value,
 
                   // conditional to render icon or not
                   action != null
@@ -169,7 +165,7 @@ class SpaceJamButton extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      ),),
     );
   }
 }
