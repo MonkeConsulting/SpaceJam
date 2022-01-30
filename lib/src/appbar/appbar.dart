@@ -24,7 +24,7 @@ class SpaceJamAppBar extends StatefulWidget {
       milliseconds: 150,
     ),
     Key? key,
-  }) : assert(
+  })  : assert(
           animated == "system" || animated == "on" || animated == "off",
           'The property animated should be "system", "on" or "off". '
           'Got "$animated".',

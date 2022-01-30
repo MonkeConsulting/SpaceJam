@@ -36,10 +36,11 @@ class SpaceJamImagePage extends StatefulWidget {
     this.imageURL,
     Key? key,
   })  : assert(
-            _supportedLocales.contains(locale),
-            "Locale is not supported.\n"
-            "To add this locale head over to\n"
-            "https://github.com/PrismForDart/SpaceJam/blob/main/doc/localisation.md.",),
+          _supportedLocales.contains(locale),
+          "Locale is not supported.\n"
+          "To add this locale head over to\n"
+          "https://github.com/PrismForDart/SpaceJam/blob/main/doc/localisation.md.",
+        ),
         super(key: key);
 
   /// Image Widget

@@ -99,73 +99,76 @@ class SpaceJamButton extends StatelessWidget {
 
     return GestureDetector(
       onTap: action,
-      child: Padding(padding: EdgeInsets.only(
-        bottom: (MediaQuery.of(context).size.width +
-        MediaQuery.of(context).size.height) /
-    2 *
-    (SpaceJamContainerChild.of(context) ? .0 : .04),),
-    child: Container(
-        width: SpaceJamContainerChild.of(context)
-            ? null
-            : MediaQuery.of(context).size.width * .9,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(
+      child: Padding(
+        padding: EdgeInsets.only(
+          bottom: (MediaQuery.of(context).size.width +
+                  MediaQuery.of(context).size.height) /
+              2 *
+              (SpaceJamContainerChild.of(context) ? .0 : .04),
+        ),
+        child: Container(
+          width: SpaceJamContainerChild.of(context)
+              ? null
+              : MediaQuery.of(context).size.width * .9,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                (MediaQuery.of(context).size.width +
+                        MediaQuery.of(context).size.height) /
+                    2 *
+                    (SpaceJamContainerChild.of(context) ? .02 : .04),
+              ),
+            ),
+            color: background,
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(
               (MediaQuery.of(context).size.width +
                       MediaQuery.of(context).size.height) /
                   2 *
-                  (SpaceJamContainerChild.of(context) ? .02 : .04),
+                  (SpaceJamContainerChild.of(context) ? .02 : .03),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                // conditional to render text with title or not
+                title != null
+                    ? Text(
+                        title!,
+                        style: secondaryFinalTextStyle,
+                      )
+                    : const Min(),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    value is String
+                        ? AutoSizeText(
+                            value,
+                            style: primaryFinalTextStyle,
+                            maxLines: autoSizeTextStyle.maxLines,
+                            group: autoSizeTextStyle.group,
+                          )
+                        : value,
+
+                    // conditional to render icon or not
+                    action != null
+                        ? Tooltip(
+                            message: tooltip,
+                            child: Icon(
+                              Icons.arrow_forward_rounded,
+                              size: MediaQuery.of(context).size.width * .075,
+                              color: iconStyle.color ?? valueTextStyle.color,
+                            ),
+                          )
+                        : const Min(),
+                  ],
+                ),
+              ],
             ),
           ),
-          color: background,
         ),
-        child: Padding(
-          padding: EdgeInsets.all(
-            (MediaQuery.of(context).size.width +
-                    MediaQuery.of(context).size.height) /
-                2 *
-                (SpaceJamContainerChild.of(context) ? .02 : .03),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              // conditional to render text with title or not
-              title != null
-                  ? Text(
-                      title!,
-                      style: secondaryFinalTextStyle,
-                    )
-                  : const Min(),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  value is String
-                      ? AutoSizeText(
-                          value,
-                          style: primaryFinalTextStyle,
-                          maxLines: autoSizeTextStyle.maxLines,
-                          group: autoSizeTextStyle.group,
-                        )
-                      : value,
-
-                  // conditional to render icon or not
-                  action != null
-                      ? Tooltip(
-                          message: tooltip,
-                          child: Icon(
-                            Icons.arrow_forward_rounded,
-                            size: MediaQuery.of(context).size.width * .075,
-                            color: iconStyle.color ?? valueTextStyle.color,
-                          ),
-                        )
-                      : const Min(),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),),
+      ),
     );
   }
 }

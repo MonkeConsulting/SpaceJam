@@ -7,7 +7,8 @@ import "appbar.dart";
 /// An icon with onTap event used in the [SpaceJamAppBar].
 class SpaceJamAppBarAction extends StatelessWidget {
   /// Constructor
-  const SpaceJamAppBarAction(this.icon, {
+  const SpaceJamAppBarAction(
+    this.icon, {
     this.tooltip = "",
     this.action,
     Key? key,

@@ -16,14 +16,14 @@ final Image imageWidget = Image.memory(int8image);
 void main() {
   group("Testing the SpaceJamImagePage widget.", () {
     testWidgets("SpaceJamImagePage with only an image.",
-            (WidgetTester tester) async {
-          await tester.pumpWidget(
-            MaterialApp(
-              home: SpaceJamImagePage(
-                imageWidget,
-              ),
-            ),
-          );
-        });
+        (WidgetTester tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: SpaceJamImagePage(
+            imageWidget,
+          ),
+        ),
+      );
+    });
   });
 }

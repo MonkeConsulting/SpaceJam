@@ -62,7 +62,7 @@ void main() {
             valueFontSize: 16,
             title: "title",
             value: "value",
-            action: (){},
+            action: () {},
             tooltip: "tooltip",
           ),
         ),

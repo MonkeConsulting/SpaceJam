@@ -107,7 +107,7 @@ class HomePageState extends State<HomePage> {
                 ),
                 SizedBox(
                   height: (MediaQuery.of(context).size.width +
-                      MediaQuery.of(context).size.height) /
+                          MediaQuery.of(context).size.height) /
                       2 *
                       .02,
                 ),
@@ -150,7 +150,7 @@ class HomePageState extends State<HomePage> {
                       "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
                     ),
                     imageURL:
-                    "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                        "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
                   ),
                 ),
               );

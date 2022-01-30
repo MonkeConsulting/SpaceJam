@@ -23,34 +23,37 @@ class SpaceJamCollection extends StatelessWidget {
   @override
   Widget build(BuildContext context) => items.isNotEmpty
       ? Padding(
-    padding: EdgeInsets.only(bottom: (MediaQuery.of(context).size.width +
-        MediaQuery.of(context).size.height) /
-        2 *
-        .04,),
-    child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            title != null
-                ? Padding(
-                    padding: EdgeInsets.only(
-                      bottom: MediaQuery.of(context).size.width * .0125,
-                      left: MediaQuery.of(context).size.width * .0225,
-                    ),
-                    child: Text(
-                      title!,
-                      style: SpaceJamTextStyles.headline(
-                        context,
-                        color: Colors.black,
+          padding: EdgeInsets.only(
+            bottom: (MediaQuery.of(context).size.width +
+                    MediaQuery.of(context).size.height) /
+                2 *
+                .04,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              title != null
+                  ? Padding(
+                      padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).size.width * .0125,
+                        left: MediaQuery.of(context).size.width * .0225,
                       ),
-                    ),
-                  )
-                : const Min(),
-            Wrap(
-              spacing: MediaQuery.of(context).size.width * .0225,
-              runSpacing: MediaQuery.of(context).size.width * .0225,
-              children: items,
-            ),
-          ],
-        ),)
+                      child: Text(
+                        title!,
+                        style: SpaceJamTextStyles.headline(
+                          context,
+                          color: Colors.black,
+                        ),
+                      ),
+                    )
+                  : const Min(),
+              Wrap(
+                spacing: MediaQuery.of(context).size.width * .0225,
+                runSpacing: MediaQuery.of(context).size.width * .0225,
+                children: items,
+              ),
+            ],
+          ),
+        )
       : const Min();
 }

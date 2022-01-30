@@ -16,11 +16,11 @@ class SpaceJamPage extends StatefulWidget {
     this.animated = "system",
     this.appBarLeftAction,
     this.appBarRightAction,
-  }) : assert(
-  animated == "system" || animated == "on" || animated == "off",
-  'The property animated should be "system", "on" or "off". '
-      'Got "$animated".',
-  ),
+  })  : assert(
+          animated == "system" || animated == "on" || animated == "off",
+          'The property animated should be "system", "on" or "off". '
+          'Got "$animated".',
+        ),
         super(key: key);
 
   /// [SpaceJamTheme] to easily import the looks.
@@ -46,44 +46,44 @@ class SpaceJamPage extends StatefulWidget {
 
 /// Stateful part of the widget.
 class SpaceJamPageState extends State<SpaceJamPage> {
-    final ScrollController _controller = ScrollController();
+  final ScrollController _controller = ScrollController();
 
-    @override
-    Widget build(BuildContext context) => Scaffold(
-      backgroundColor: Colors.white,
-      body: Stack(
-        children: <Widget>[
-          NotificationListener<ScrollNotification>(
-            onNotification: (ScrollNotification notification) {
-              if (notification is ScrollStartNotification ||
-                  notification is ScrollUpdateNotification) {
-                setState(() {});
-              }
-              return true;
-            },
-            child: SingleChildScrollView(
-              controller: _controller,
-              child: Column(
-                children: <Widget>[
-                  const Opacity(
-                    opacity: 0,
-                    child: SpaceJamAppBar(
-                      title: "SpaceJam",
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: Colors.white,
+        body: Stack(
+          children: <Widget>[
+            NotificationListener<ScrollNotification>(
+              onNotification: (ScrollNotification notification) {
+                if (notification is ScrollStartNotification ||
+                    notification is ScrollUpdateNotification) {
+                  setState(() {});
+                }
+                return true;
+              },
+              child: SingleChildScrollView(
+                controller: _controller,
+                child: Column(
+                  children: <Widget>[
+                    const Opacity(
+                      opacity: 0,
+                      child: SpaceJamAppBar(
+                        title: "SpaceJam",
+                      ),
                     ),
-                  ),
-                ...widget.children,
-                ],
+                    ...widget.children,
+                  ],
+                ),
               ),
             ),
-          ),
-          SpaceJamAppBar(
-            title: "SpaceJam",
-            controller: _controller,
-            animated: widget.animated,
-            leftAction: widget.appBarLeftAction,
-            rightAction: widget.appBarRightAction,
-          ),
-        ],
-      ),
-    );
+            SpaceJamAppBar(
+              title: "SpaceJam",
+              controller: _controller,
+              animated: widget.animated,
+              leftAction: widget.appBarLeftAction,
+              rightAction: widget.appBarRightAction,
+            ),
+          ],
+        ),
+      );
 }
