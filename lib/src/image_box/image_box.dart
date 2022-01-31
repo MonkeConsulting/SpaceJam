@@ -14,6 +14,12 @@ Map<String, Map<String, String>> _localization = <String, Map<String, String>>{
   },
   "hu": <String, String>{
     "fullscreen": "Teljes képernyő",
+  },
+  "de": <String, String>{
+    "fullscreen": "Vollbild",
+  },
+  "da": <String, String>{
+    "fullscreen": "Fuld skærm",
   }
 };
 

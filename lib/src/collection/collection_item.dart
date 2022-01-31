@@ -22,8 +22,8 @@ class SpaceJamCollectionItem extends StatelessWidget {
     this.upperCaption,
     this.tooltip = "",
     this.onTap,
-    this.pathToBackground,
     this.backgroundColor,
+    this.backgroundImage,
     this.lowerCaption,
     this.lowerValue,
   }) : super(key: key);
@@ -40,11 +40,11 @@ class SpaceJamCollectionItem extends StatelessWidget {
   /// Lower value.
   final String? lowerValue;
 
-  /// Path to the background.
-  final String? pathToBackground;
-
   /// Background color.
   final Color? backgroundColor;
+
+  /// Background image.
+  final DecorationImage? backgroundImage;
 
   /// Tooltip.
   final String tooltip;
@@ -60,12 +60,7 @@ class SpaceJamCollectionItem extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: backgroundColor,
-              image: pathToBackground != null
-                  ? DecorationImage(
-                      image: AssetImage(pathToBackground!),
-                      fit: BoxFit.cover,
-                    )
-                  : null,
+              image: backgroundImage,
               borderRadius: BorderRadius.all(
                 Radius.circular(
                   (MediaQuery.of(context).size.width +

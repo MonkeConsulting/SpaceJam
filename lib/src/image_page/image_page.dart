@@ -18,6 +18,18 @@ Map<String, Map<String, String>> _localization = <String, Map<String, String>>{
     "copyURL": "URL másolása",
     "urlCopied": "URL kimásolva!",
     "ok": "OK",
+  },
+  "de": <String, String>{
+    "back": "Zurück",
+    "copyURL": "URL kopieren",
+    "urlCopied": "URL kopiert!",
+    "ok": "OK",
+  },
+  "da": <String, String>{
+    "back": "Tillbage",
+    "copyURL": "Kopier URL",
+    "urlCopied": "URL kopieret!",
+    "ok": "OK",
   }
 };
 
@@ -148,11 +160,11 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
                             ),
                           );
                         },
-                        tooltip:
-                        _localization[(_supportedLocales.contains(widget.locale)
-                            ? widget.locale
-                            : _supportedLocales[0])!
-                            .languageCode]!["copyURL"],
+                        tooltip: _localization[
+                            (_supportedLocales.contains(widget.locale)
+                                    ? widget.locale
+                                    : _supportedLocales[0])!
+                                .languageCode]!["copyURL"],
                         child: Icon(
                           Icons.link,
                           size: MediaQuery.of(context).size.width * .075,

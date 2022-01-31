@@ -11,8 +11,8 @@ class SpaceJamContainer extends StatelessWidget {
   const SpaceJamContainer({
     required this.title,
     required this.child,
-    this.pathToBackground,
     this.backgroundColor,
+    this.backgroundImage,
     Key? key,
   }) : super(key: key);
 
@@ -22,11 +22,11 @@ class SpaceJamContainer extends StatelessWidget {
   /// Title displayed at the top.
   final String title;
 
-  /// Path to the background.
-  final String? pathToBackground;
-
   /// Background color.
   final Color? backgroundColor;
+
+  /// Background image.
+  final DecorationImage? backgroundImage;
 
   @override
   Widget build(BuildContext context) {
@@ -73,12 +73,7 @@ class SpaceJamContainer extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       color: backgroundColor,
-                      image: pathToBackground != null
-                          ? DecorationImage(
-                              image: AssetImage(pathToBackground!),
-                              fit: BoxFit.cover,
-                            )
-                          : null,
+                      image: backgroundImage,
                       borderRadius: BorderRadius.all(
                         Radius.circular(
                           (MediaQuery.of(context).size.width +

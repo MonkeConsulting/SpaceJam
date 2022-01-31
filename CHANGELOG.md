@@ -1,3 +1,15 @@
+# 1.0.3
+* Added German and Danish locales.
+#### Breaking changes:
+Button:
+- replaced `pathToBackground` property with `backgroundImage`.
+  This used a `DecorationImage` instead of a string that contains the path to the image.
+CollectionItem:
+- replaced `pathToBackground` property with `backgroundImage`.
+  This used a `DecorationImage` instead of a string that contains the path to the image.
+Container:
+- replaced `pathToBackground` property with `backgroundImage`.
+  This used a `DecorationImage` instead of a string that contains the path to the image.
 # 1.0.2
 * Bugfixes
 * Default locale if locale is not supported.

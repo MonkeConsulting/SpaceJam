@@ -116,7 +116,7 @@ class HomePageState extends State<HomePage> {
                   titleFontSize: 24,
                   title: "Test",
                   value: "ImagePage",
-                  background: Colors.white24,
+                  backgroundColor: Colors.white24,
                   action: () {
                     Navigator.push(
                       context,
@@ -140,7 +140,7 @@ class HomePageState extends State<HomePage> {
             titleFontSize: 24,
             title: "Test",
             value: "ImagePage",
-            background: Colors.blue,
+            backgroundColor: Colors.blue,
             action: () {
               Navigator.push(
                 context,
