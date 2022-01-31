@@ -109,6 +109,7 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
                   heroTag: null,
                   backgroundColor: Colors.black,
                   onPressed: () {
+                    HapticFeedback.selectionClick();
                     Navigator.pop(context);
                   },
                   tooltip: _localization[
@@ -133,6 +134,7 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
                         heroTag: null,
                         backgroundColor: Colors.black,
                         onPressed: () {
+                          HapticFeedback.selectionClick();
                           Clipboard.setData(
                             ClipboardData(text: widget.imageURL),
                           );
@@ -155,7 +157,7 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
                                             ? widget.locale
                                             : _supportedLocales[0])!
                                         .languageCode]!["ok"]!,
-                                onPressed: () {},
+                                onPressed: HapticFeedback.selectionClick,
                               ),
                             ),
                           );

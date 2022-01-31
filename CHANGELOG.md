@@ -1,3 +1,6 @@
+# 1.1.0
+* Added haptics
+* Better layout
 # 1.0.6
 * Bugfix
 # 1.0.5

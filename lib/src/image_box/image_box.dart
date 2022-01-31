@@ -1,6 +1,6 @@
 // Flutter
 import "package:flutter/material.dart";
-// import "package:flutter/services.dart";
+import "package:flutter/services.dart";
 
 // pages
 import "../image_page/image_page.dart";
@@ -99,11 +99,11 @@ class SpaceJamImageBox extends StatelessWidget {
             alignment: Alignment.bottomRight,
             child: GestureDetector(
               onTap: () {
-                // TODO(KristofKekesi): Do the haptics.
-                // HapticFeedback.selectionClick();
                 if (onTap != null) {
+                  HapticFeedback.selectionClick();
                   onTap;
                 } else if (isInteractive) {
+                  HapticFeedback.selectionClick();
                   Navigator.push(
                     context,
                     MaterialPageRoute<Widget>(

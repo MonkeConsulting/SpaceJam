@@ -1,6 +1,7 @@
 // Flutter
 import "package:auto_size_text/auto_size_text.dart";
 import "package:flutter/material.dart";
+import "package:flutter/services.dart";
 
 // Widgets
 import "../container/container_child.dart";
@@ -102,7 +103,12 @@ class SpaceJamButton extends StatelessWidget {
         titleTextStyle.copyWith(fontSize: titleFontSize);
 
     return GestureDetector(
-      onTap: action,
+      onTap: () {
+        if (action != null) {
+          HapticFeedback.selectionClick();
+          action;
+        }
+      },
       child: Padding(
         padding: EdgeInsets.only(
           bottom: (MediaQuery.of(context).size.width +
@@ -141,6 +147,7 @@ class SpaceJamButton extends StatelessWidget {
                     ? Text(
                         title!,
                         style: secondaryFinalTextStyle,
+                        overflow: TextOverflow.ellipsis,
                       )
                     : const Min(),
                 Row(
@@ -148,11 +155,12 @@ class SpaceJamButton extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     value is String
-                        ? AutoSizeText(
-                            value,
-                            style: primaryFinalTextStyle,
-                            maxLines: autoSizeTextStyle.maxLines,
-                            group: autoSizeTextStyle.group,
+                        ? Expanded(
+                            child: Text(
+                              value,
+                              style: primaryFinalTextStyle,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           )
                         : value,
 

@@ -56,7 +56,11 @@ class SpaceJamCollectionItem extends StatelessWidget {
   Widget build(BuildContext context) => Tooltip(
         message: tooltip,
         child: GestureDetector(
-          onTap: onTap,
+          onTap: () {
+            if (onTap != null) {
+              onTap;
+            }
+          },
           child: Container(
             decoration: BoxDecoration(
               color: backgroundColor,
@@ -115,32 +119,35 @@ class SpaceJamCollectionItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          lowerCaption != null
-                              ? AutoSizeText(
-                                  lowerCaption!,
-                                  style: SpaceJamTextStyles.bodySmall(
-                                    context,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                  group: collectionItemCaptionAutoSizeGroup,
-                                  maxLines: 1,
-                                  minFontSize: 1,
-                                )
-                              : const Min(),
-                          lowerValue != null
-                              ? Text(
-                                  lowerValue!,
-                                  style: SpaceJamTextStyles.bodyMedium(
-                                    context,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                )
-                              : const Min(),
-                        ],
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            lowerCaption != null
+                                ? AutoSizeText(
+                                    lowerCaption!,
+                                    style: SpaceJamTextStyles.bodySmall(
+                                      context,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    group: collectionItemCaptionAutoSizeGroup,
+                                    maxLines: 1,
+                                    minFontSize: 1,
+                                  )
+                                : const Min(),
+                            lowerValue != null
+                                ? Text(
+                                    lowerValue!,
+                                    style: SpaceJamTextStyles.bodyMedium(
+                                      context,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  )
+                                : const Min(),
+                          ],
+                        ),
                       ),
                       onTap != null
                           ? Icon(

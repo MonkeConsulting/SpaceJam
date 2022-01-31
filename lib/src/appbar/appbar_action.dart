@@ -1,5 +1,6 @@
 // Flutter
 import "package:flutter/material.dart";
+import "package:flutter/services.dart";
 
 // widgets
 import "appbar.dart";
@@ -25,7 +26,12 @@ class SpaceJamAppBarAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-        onTap: action,
+        onTap: () {
+          if (action != null) {
+            HapticFeedback.selectionClick();
+            action;
+          }
+        },
         child: Padding(
           padding: EdgeInsets.only(
             right: (MediaQuery.of(context).size.width +
