@@ -1,3 +1,5 @@
+# 1.0.4
+Nothing that should be mentioned.
 # 1.0.3
 * Added German and Danish locales.
 #### Breaking changes:
