@@ -47,10 +47,13 @@ class SpaceJamCollection extends StatelessWidget {
                       ),
                     )
                   : const Min(),
-              Wrap(
-                spacing: MediaQuery.of(context).size.width * .0225,
-                runSpacing: MediaQuery.of(context).size.width * .0225,
-                children: items,
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .8,
+                child: Wrap(
+                  spacing: MediaQuery.of(context).size.width * .0225,
+                  runSpacing: MediaQuery.of(context).size.width * .0225,
+                  children: items,
+                ),
               ),
             ],
           ),

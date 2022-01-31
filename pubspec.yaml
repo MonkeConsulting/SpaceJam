@@ -1,6 +1,6 @@
 name: spacejam
 description: SpaceJam is an open-sourced internal package used across the Mira Collection.
-version: 1.0.4
+version: 1.0.5
 homepage: https://www.kekesi.dev
 
 environment:

@@ -1,3 +1,5 @@
+# 1.0.5
+* Bugfix
 # 1.0.4
 Nothing that should be mentioned.
 # 1.0.3
