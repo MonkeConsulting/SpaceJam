@@ -70,7 +70,7 @@ class SpaceJamCollectionItem extends StatelessWidget {
                 ),
               ),
             ),
-            width: MediaQuery.of(context).size.width * .4,
+            width: MediaQuery.of(context).size.width * .385,
             height: MediaQuery.of(context).size.height * .2,
             child: Padding(
               padding: EdgeInsets.all(
