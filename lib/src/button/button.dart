@@ -103,8 +103,7 @@ class SpaceJamButton extends StatelessWidget {
         titleTextStyle.copyWith(fontSize: titleFontSize);
 
     return GestureDetector(
-      onTap:
-          action,
+      onTap: action,
       onTapUp: (_) {
         HapticFeedback.selectionClick();
       },

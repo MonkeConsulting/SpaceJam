@@ -101,7 +101,7 @@ class SpaceJamImageBox extends StatelessWidget {
               onTap: onTap,
               onTapUp: (_) {
                 HapticFeedback.selectionClick();
-                if (isInteractive && onTap != null) {
+                if (isInteractive && onTap == null) {
                   HapticFeedback.selectionClick();
                   Navigator.push(
                     context,

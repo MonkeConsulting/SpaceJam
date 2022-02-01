@@ -39,7 +39,12 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => SpaceJamPage(
         title: "SpaceJam",
-        appBarRightAction: SpaceJamAppBarAction(Icons.search, action: () {print("vv");},),
+        appBarRightAction: SpaceJamAppBarAction(
+          Icons.search,
+          action: () {
+            print("vv");
+          },
+        ),
         children: <dynamic>[
           SpaceJamContainer(
             title: "SpaceJam",
