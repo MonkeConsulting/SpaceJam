@@ -4,7 +4,8 @@
 ## Features
   <details>
     <summary>SpaceJamAppBar</summary>
-    <image src="https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamAppBar.png" width="50%">
+  
+![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamAppBar.png)
   </details>
   
   <details>
@@ -19,22 +20,26 @@
     
   `SpaceJamButton` outside of a `SpaceJamContainer` widget.
   <br /><br />
-  <image src="https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamButtonOutside.png" width="50%">
+  
+![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamButtonOutside.png)
   <br /><br />
       
   `SpaceJamButton` inside of a `SpaceJamContainer` widget.
   <br /><br />
-  <image src="https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamButtonInside.png" width="50%">
+  
+![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamButtonInside.png)
   </details>
     
   <details>
     <summary>SpaceJamContainer</summary>
-   <image src="https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamContainer.png" width="50%">
+  
+![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamContainer.png)
      </details>
   
   <details>
     <summary>SpaceJamImagePage</summary>
-  <image src="https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamImagePage.png" width="50%">
+  
+![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamImagePage.png)
     </details>
   
   <details>
@@ -56,12 +61,14 @@
     
   <details>
     <summary>SpaceJamCollection</summary>
-    <image src="https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamCollection.png" width="45%">
+  
+![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamCollection.png)
   </details>
     
   <details>
     <summary>SpaceJamCollectionItem</summary>
-    <image src="https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamCollectionItem.png" width="20%">
+  
+![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamCollectionItem.png)
   </details>
     
   <details>
@@ -69,11 +76,13 @@
     
   #### `SpaceJamImageBox` outside of a `SpaceJamContainer` widget.
   <br />
-  <image src="https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamImageBoxOutside.png" width="50%">
+  
+![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamImageBoxOutside.png)
   
   #### `SpaceJamImageBox` inside of a `SpaceJamContainer` widget.
   <br />
-  <image src="https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamImageBoxInside.png" width="50%">
+  
+![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamImageBoxInside.png)
   </details>
 
 ## Usage
