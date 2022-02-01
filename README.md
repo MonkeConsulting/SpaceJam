@@ -83,7 +83,7 @@
   <br />
   
 ![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamImageBoxInside.png)
-  </details>
+    </details>
 
 ## Usage
 

@@ -1,6 +1,7 @@
 // Flutter
 import "package:auto_size_text/auto_size_text.dart";
 import "package:flutter/material.dart";
+import "package:flutter/services.dart";
 
 // widgets
 import "../theme/text_styles.dart";
@@ -56,10 +57,9 @@ class SpaceJamCollectionItem extends StatelessWidget {
   Widget build(BuildContext context) => Tooltip(
         message: tooltip,
         child: GestureDetector(
-          onTap: () {
-            if (onTap != null) {
-              onTap;
-            }
+          onTap: onTap,
+          onTapUp: (_) {
+            HapticFeedback.selectionClick();
           },
           child: Container(
             decoration: BoxDecoration(

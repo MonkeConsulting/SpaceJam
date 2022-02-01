@@ -98,11 +98,10 @@ class SpaceJamImageBox extends StatelessWidget {
           child: Align(
             alignment: Alignment.bottomRight,
             child: GestureDetector(
-              onTap: () {
-                if (onTap != null) {
-                  HapticFeedback.selectionClick();
-                  onTap;
-                } else if (isInteractive) {
+              onTap: onTap,
+              onTapUp: (_) {
+                HapticFeedback.selectionClick();
+                if (isInteractive && onTap != null) {
                   HapticFeedback.selectionClick();
                   Navigator.push(
                     context,
