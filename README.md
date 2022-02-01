@@ -34,13 +34,13 @@
     <summary>SpaceJamContainer</summary>
   
 ![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamContainer.png)
-     </details>
+ </details>
   
   <details>
     <summary>SpaceJamImagePage</summary>
   
 ![](https://github.com/PrismForDart/SpaceJam/blob/main/doc/widgets/SpaceJamImagePage.png)
-    </details>
+  </details>
   
   <details>
     <summary>
