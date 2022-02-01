@@ -1,3 +1,5 @@
+# 1.1.2
+* Better haptics
 # 1.1.1
 * Bugfix
 # 1.1.0
