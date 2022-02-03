@@ -4,10 +4,13 @@
 #### Breaking changes:
 SpaceJamTheme:
 * SpaceJamTheme is renamed to SpaceJamThemeData.
+
 AppBar:
 * Removed `animated` property. Same can be achieved by wrapping it with a `SpaceJamTheme` widget.
+
 SpaceJamImageBox:
 * Removed `locale` property. Same can be achieved by wrapping it with a `SpaceJamTheme` widget.
+
 SpaceJamImagePage:
 * Removed `locale` property. Same can be achieved by wrapping it with a `SpaceJamTheme` widget.
 # 1.1.3
@@ -31,9 +34,11 @@ Nothing that should be mentioned.
 Button:
 - replaced `pathToBackground` property with `backgroundImage`.
   This used a `DecorationImage` instead of a string that contains the path to the image.
+
 CollectionItem:
 - replaced `pathToBackground` property with `backgroundImage`.
   This used a `DecorationImage` instead of a string that contains the path to the image.
+
 Container:
 - replaced `pathToBackground` property with `backgroundImage`.
   This used a `DecorationImage` instead of a string that contains the path to the image.
@@ -51,13 +56,17 @@ Container:
 #### Breaking changes:
 Appbar:
 - Renamed `Appbar` to `SpaceJamAppBar`. 
+
 AppBarAction:
 - Renamed `AppBarAction` to `SpaceJamAppBarAction`.
 - `icon` is now an unnamed parameter.
+
 Button:
 - Renamed `Button` to `SpaceJamButton`.
+
 ContentBox:
 - Renamed `ContentBox` to `SpaceJamContainer`.
+
 ImagePage:
 - Renamed `ImagePage` to `SpaceJamImagePage`.
 - `image` is now an unnamed parameter.
