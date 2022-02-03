@@ -1,8 +1,8 @@
 // Flutter
 import "package:flutter/material.dart";
-import "package:flutter/services.dart";
 
 // widgets
+import "../private/haptics.dart";
 import "appbar.dart";
 
 /// An icon with onTap event used in the [SpaceJamAppBar].
@@ -28,7 +28,7 @@ class SpaceJamAppBarAction extends StatelessWidget {
   Widget build(BuildContext context) => GestureDetector(
         onTap: action,
         onTapUp: (_) {
-          HapticFeedback.selectionClick();
+          hapticFeedback(context);
         },
         child: Padding(
           padding: EdgeInsets.only(

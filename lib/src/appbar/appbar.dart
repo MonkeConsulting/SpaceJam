@@ -8,6 +8,7 @@ import "../theme/text_styles.dart";
 // widgets
 import "../private/size_provider.dart";
 import "../private/min.dart";
+import "../theme/theme.dart";
 import "appbar_action.dart";
 
 /// The SpaceJamAppBar widget.
@@ -19,17 +20,11 @@ class SpaceJamAppBar extends StatefulWidget {
     this.leftAction,
     this.rightAction,
     this.controller,
-    this.animated = "system",
     this.animationDuration = const Duration(
       milliseconds: 150,
     ),
     Key? key,
-  })  : assert(
-          animated == "system" || animated == "on" || animated == "off",
-          'The property animated should be "system", "on" or "off". '
-          'Got "$animated".',
-        ),
-        super(key: key);
+  }) : super(key: key);
 
   /// The title of the appbar.
   final String title;
@@ -45,10 +40,6 @@ class SpaceJamAppBar extends StatefulWidget {
 
   /// A [ScrollController] used to make the animations
   final ScrollController? controller;
-
-  /// If a [ScrollController] is presented the Appbar can be animated.
-  /// Default to system preferences.
-  final String animated;
 
   /// Duration of the opacity animation
   final Duration animationDuration;
@@ -73,19 +64,23 @@ class SpaceJamAppBarState extends State<SpaceJamAppBar> {
 
   @override
   Widget build(BuildContext context) {
-    late bool animated;
+    /// If a [ScrollController] is presented the Appbar can be animated.
+    /// Default to system preferences.
+    final String animated = SpaceJamTheme.of(context).animated!;
 
-    if (widget.animated == "system") {
-      animated = !MediaQuery.of(context).disableAnimations;
-    } else if (widget.animated == "on") {
-      animated = true;
+    late bool boolAnimated;
+
+    if (animated == "system") {
+      boolAnimated = !MediaQuery.of(context).disableAnimations;
+    } else if (animated == "on") {
+      boolAnimated = true;
     } else {
-      animated = false;
+      boolAnimated = false;
     }
 
     Widget subtitleWidget() {
       if (widget.subtitle != null) {
-        return widget.controller != null && animated == true
+        return widget.controller != null && boolAnimated == true
             ? AnimatedOpacity(
                 opacity: appbarOpacity(
                   offset: widget.controller!.offset,
@@ -160,7 +155,7 @@ class SpaceJamAppBarState extends State<SpaceJamAppBar> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
                                     widget.controller != null &&
-                                            animated == true
+                                            boolAnimated == true
                                         ? AnimatedOpacity(
                                             opacity: appbarOpacity(
                                               offset: widget.controller!.offset,

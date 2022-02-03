@@ -3,7 +3,7 @@ import "package:auto_size_text/auto_size_text.dart";
 import "package:flutter/material.dart";
 
 // widget
-import "container_child.dart";
+import "container_info.dart";
 
 /// [StatelessWidget] used inside the [SpaceJamContainer].
 class SpaceJamContainer extends StatelessWidget {
@@ -32,7 +32,7 @@ class SpaceJamContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final AutoSizeGroup contentBigTextSize = AutoSizeGroup();
 
-    return SpaceJamContainerChild(
+    return SpaceJamContainerInfo(
       child: Padding(
         padding: EdgeInsets.only(
           top: (MediaQuery.of(context).size.width +

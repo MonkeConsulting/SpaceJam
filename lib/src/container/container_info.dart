@@ -2,21 +2,21 @@
 import "package:flutter/material.dart";
 
 /// Custom decorated widget to display information.
-class SpaceJamContainerChild extends InheritedWidget {
+class SpaceJamContainerInfo extends InheritedWidget {
   /// Constructor
-  const SpaceJamContainerChild({
+  const SpaceJamContainerInfo({
     required Widget child,
-    this.isInContainer = true,
     Key? key,
   }) : super(key: key, child: child);
 
   /// Sets [isInContainer] to true for child widgets.
-  final bool isInContainer;
+  //ignore:avoid_field_initializers_in_const_classes
+  final bool isInContainer = true;
 
   /// Makes it simpler.
   static bool of(BuildContext context) {
-    final SpaceJamContainerChild? result =
-        context.dependOnInheritedWidgetOfExactType<SpaceJamContainerChild>();
+    final SpaceJamContainerInfo? result =
+        context.dependOnInheritedWidgetOfExactType<SpaceJamContainerInfo>();
 
     return result?.isInContainer ?? false;
   }

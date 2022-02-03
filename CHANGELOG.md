@@ -1,3 +1,15 @@
+# 1.1.4
+* added SpaceJamTheme
+* Bugfixes
+#### Breaking changes:
+SpaceJamTheme:
+* SpaceJamTheme is renamed to SpaceJamThemeData.
+AppBar:
+* Removed `animated` property. Same can be achieved by wrapping it with a `SpaceJamTheme` widget.
+SpaceJamImageBox:
+* Removed `locale` property. Same can be achieved by wrapping it with a `SpaceJamTheme` widget.
+SpaceJamImagePage:
+* Removed `locale` property. Same can be achieved by wrapping it with a `SpaceJamTheme` widget.
 # 1.1.3
 * Bugfix
 # 1.1.2

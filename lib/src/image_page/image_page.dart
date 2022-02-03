@@ -3,7 +3,9 @@ import "package:flutter/material.dart";
 import "package:flutter/services.dart";
 
 // widgets
+import "../private/haptics.dart";
 import "../private/min.dart";
+import "../theme/theme.dart";
 
 /// Localization strings
 Map<String, Map<String, String>> _localization = <String, Map<String, String>>{
@@ -37,32 +39,24 @@ Map<String, Map<String, String>> _localization = <String, Map<String, String>>{
 List<Locale> _supportedLocales = const <Locale>[
   Locale("en"),
   Locale("hu"),
+  Locale("de"),
+  Locale("da"),
 ];
 
 /// Fullscreen image shower.
 class SpaceJamImagePage extends StatefulWidget {
   /// Constructor
-  SpaceJamImagePage(
+  const SpaceJamImagePage(
     this.image, {
-    this.locale = const Locale("en"),
     this.imageURL,
     Key? key,
-  })  : assert(
-          _supportedLocales.contains(locale),
-          "Locale is not supported.\n"
-          "To add this locale head over to\n"
-          "https://github.com/PrismForDart/SpaceJam/blob/main/doc/localisation.md.",
-        ),
-        super(key: key);
+  }) : super(key: key);
 
   /// Image Widget
   final Image image;
 
   /// The url of the image. Optional.
   final String? imageURL;
-
-  /// Locale used in localization.
-  final Locale? locale;
 
   @override
   SpaceJamImagePageState createState() => SpaceJamImagePageState();
@@ -93,98 +87,102 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
   }
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        backgroundColor: Colors.black,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Align(
-                alignment: Alignment.topLeft,
-                child: FloatingActionButton(
-                  /// have to define heroTag because this widget uses
-                  /// two [FloatingActionButton]-s which are making an
-                  /// error because of their same default values.
-                  heroTag: null,
-                  backgroundColor: Colors.black,
-                  onPressed: () {
-                    HapticFeedback.selectionClick();
-                    Navigator.pop(context);
-                  },
-                  tooltip: _localization[
-                      (_supportedLocales.contains(widget.locale)
-                              ? widget.locale
-                              : _supportedLocales[0])!
-                          .languageCode]!["back"],
-                  child: Icon(
-                    Icons.arrow_back_rounded,
-                    size: MediaQuery.of(context).size.width * .075,
-                    color: Colors.white,
-                  ),
+  Widget build(BuildContext context) {
+    /// Locale used in localization.
+    final Locale? locale = SpaceJamTheme.of(context).locale;
+
+    return Scaffold(
+      backgroundColor: Colors.black,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Align(
+              alignment: Alignment.topLeft,
+              child: FloatingActionButton(
+                /// have to define heroTag because this widget uses
+                /// two [FloatingActionButton]-s which are making an
+                /// error because of their same default values.
+                heroTag: null,
+                backgroundColor: Colors.black,
+                onPressed: () {
+                  hapticFeedback(context);
+                  Navigator.pop(context);
+                },
+                tooltip: _localization[(_supportedLocales.contains(locale)
+                        ? locale
+                        : _supportedLocales.first)!
+                    .languageCode]!["back"],
+                child: Icon(
+                  Icons.arrow_back_rounded,
+                  size: MediaQuery.of(context).size.width * .075,
+                  color: Colors.white,
                 ),
               ),
-              widget.imageURL != null
-                  ? Align(
-                      alignment: Alignment.topRight,
-                      child: FloatingActionButton(
-                        /// have to define heroTag because this widget uses
-                        /// two [FloatingActionButton]-s which are making an
-                        /// error because of their same default values.
-                        heroTag: null,
-                        backgroundColor: Colors.black,
-                        onPressed: () {
-                          HapticFeedback.selectionClick();
-                          Clipboard.setData(
-                            ClipboardData(text: widget.imageURL),
-                          );
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              backgroundColor: Colors.white10,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              content: Text(
-                                _localization[
-                                    (_supportedLocales.contains(widget.locale)
-                                            ? widget.locale
-                                            : _supportedLocales[0])!
-                                        .languageCode]!["urlCopied"]!,
-                              ),
-                              action: SnackBarAction(
-                                label: _localization[
-                                    (_supportedLocales.contains(widget.locale)
-                                            ? widget.locale
-                                            : _supportedLocales[0])!
-                                        .languageCode]!["ok"]!,
-                                onPressed: HapticFeedback.selectionClick,
-                              ),
+            ),
+            widget.imageURL != null
+                ? Align(
+                    alignment: Alignment.topRight,
+                    child: FloatingActionButton(
+                      /// have to define heroTag because this widget uses
+                      /// two [FloatingActionButton]-s which are making an
+                      /// error because of their same default values.
+                      heroTag: null,
+                      backgroundColor: Colors.black,
+                      onPressed: () {
+                        hapticFeedback(context);
+                        Clipboard.setData(
+                          ClipboardData(text: widget.imageURL),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: Colors.white10,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                          );
-                        },
-                        tooltip: _localization[
-                            (_supportedLocales.contains(widget.locale)
-                                    ? widget.locale
-                                    : _supportedLocales[0])!
-                                .languageCode]!["copyURL"],
-                        child: Icon(
-                          Icons.link,
-                          size: MediaQuery.of(context).size.width * .075,
-                          color: Colors.white,
-                        ),
+                            content: Text(
+                              _localization[(_supportedLocales.contains(locale)
+                                      ? locale
+                                      : _supportedLocales.first)!
+                                  .languageCode]!["urlCopied"]!,
+                            ),
+                            action: SnackBarAction(
+                              label: _localization[
+                                  (_supportedLocales.contains(locale)
+                                          ? locale
+                                          : _supportedLocales.first)!
+                                      .languageCode]!["ok"]!,
+                              onPressed: () {
+                                hapticFeedback(context);
+                              },
+                            ),
+                          ),
+                        );
+                      },
+                      tooltip: _localization[(_supportedLocales.contains(locale)
+                              ? locale
+                              : _supportedLocales.first)!
+                          .languageCode]!["copyURL"],
+                      child: Icon(
+                        Icons.link,
+                        size: MediaQuery.of(context).size.width * .075,
+                        color: Colors.white,
                       ),
-                    )
-                  : const Min(),
-            ],
-          ),
+                    ),
+                  )
+                : const Min(),
+          ],
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-        body: InteractiveViewer(
-          minScale: 1,
-          maxScale: 4,
-          child: Align(
-            child: widget.image,
-          ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+      body: InteractiveViewer(
+        minScale: 1,
+        maxScale: 4,
+        child: Align(
+          child: widget.image,
         ),
-      );
+      ),
+    );
+  }
 }

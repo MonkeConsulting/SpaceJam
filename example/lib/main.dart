@@ -18,7 +18,7 @@ class Example extends StatelessWidget {
         title: "SpaceJam example",
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          textTheme: SpaceJamTheme.textTheme(),
+          textTheme: SpaceJamThemeData.textTheme(),
         ),
         debugShowCheckedModeBanner: false,
         home: const HomePage(),
@@ -39,11 +39,8 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => SpaceJamPage(
         title: "SpaceJam",
-        appBarRightAction: SpaceJamAppBarAction(
+        appBarRightAction: const SpaceJamAppBarAction(
           Icons.search,
-          action: () {
-            print("vv");
-          },
         ),
         children: <dynamic>[
           SpaceJamContainer(

@@ -1,10 +1,10 @@
 // Flutter
 import "package:auto_size_text/auto_size_text.dart";
 import "package:flutter/material.dart";
-import "package:flutter/services.dart";
 
 // Widgets
-import "../container/container_child.dart";
+import "../container/container_info.dart";
+import "../private/haptics.dart";
 import "../private/min.dart";
 
 /// Class to store the two styling parameters of the [AutoSizeText].
@@ -105,17 +105,17 @@ class SpaceJamButton extends StatelessWidget {
     return GestureDetector(
       onTap: action,
       onTapUp: (_) {
-        HapticFeedback.selectionClick();
+        hapticFeedback(context);
       },
       child: Padding(
         padding: EdgeInsets.only(
           bottom: (MediaQuery.of(context).size.width +
                   MediaQuery.of(context).size.height) /
               2 *
-              (SpaceJamContainerChild.of(context) ? .0 : .04),
+              (SpaceJamContainerInfo.of(context) ? .0 : .04),
         ),
         child: Container(
-          width: SpaceJamContainerChild.of(context)
+          width: SpaceJamContainerInfo.of(context)
               ? null
               : MediaQuery.of(context).size.width * .9,
           decoration: BoxDecoration(
@@ -124,7 +124,7 @@ class SpaceJamButton extends StatelessWidget {
                 (MediaQuery.of(context).size.width +
                         MediaQuery.of(context).size.height) /
                     2 *
-                    (SpaceJamContainerChild.of(context) ? .02 : .04),
+                    (SpaceJamContainerInfo.of(context) ? .02 : .04),
               ),
             ),
             color: backgroundColor,
@@ -135,7 +135,7 @@ class SpaceJamButton extends StatelessWidget {
               (MediaQuery.of(context).size.width +
                       MediaQuery.of(context).size.height) /
                   2 *
-                  (SpaceJamContainerChild.of(context) ? .02 : .03),
+                  (SpaceJamContainerInfo.of(context) ? .02 : .03),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
