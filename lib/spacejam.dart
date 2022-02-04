@@ -2,7 +2,7 @@ export "src/theme/text_styles.dart";
 export "src/theme/theme_data.dart";
 
 // Widgets
-export "src/page/spacejam_page.dart";
+export "src/page/page.dart";
 export "src/collection/collection_item.dart";
 export "src/container/container_info.dart";
 export "src/theme/theme.dart";
