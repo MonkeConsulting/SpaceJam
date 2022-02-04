@@ -40,6 +40,8 @@ class SpaceJamImageBox extends StatelessWidget {
     this.image, {
     Key? key,
     this.imageURL,
+    this.height,
+    this.autoHeight = false,
     this.onTap,
     this.tooltip,
     this.isInteractive = true,
@@ -51,6 +53,13 @@ class SpaceJamImageBox extends StatelessWidget {
   /// Optional.
   /// URL of the image.
   final String? imageURL;
+
+  /// Optional.
+  /// Height of the widget. If null, the height will be set automatically.
+  final double? height;
+
+  /// Makes the widget as tall as it needs to be to. Will not show black bars.
+  final bool autoHeight;
 
   /// Action when clicked.
   /// This will disable the default actions.
@@ -65,8 +74,33 @@ class SpaceJamImageBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// Used if [onTap] is not given.
+    /// Used if onTap is not given.
     final Locale? locale = SpaceJamTheme.of(context).locale;
+
+    // height
+    double? finalHeight;
+
+    if (height != null && autoHeight) {
+      Exception(
+        "Do not provide both height and autoHeight. "
+        "Will continue with autoHeight on.",
+      );
+    }
+
+    if (height == null) {
+      finalHeight = MediaQuery.of(context).size.height * .2;
+    } else if (height! > 0) {
+      // set height
+      finalHeight = height;
+    } else {
+      Exception(
+        "height is not valid. "
+        "Please provide a nullable double, which is bigger than zero.",
+      );
+    }
+    if (autoHeight) {
+      finalHeight = null;
+    }
 
     return Padding(
       padding: EdgeInsets.only(
@@ -75,10 +109,12 @@ class SpaceJamImageBox extends StatelessWidget {
             2 *
             (SpaceJamContainerInfo.of(context) ? .0 : .02),
       ),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.black,
-          image: DecorationImage(image: image.image),
+      child: SizedBox(
+        width: SpaceJamContainerInfo.of(context)
+            ? MediaQuery.of(context).size.width * .9
+            : MediaQuery.of(context).size.width * .8,
+        height: finalHeight,
+        child: ClipRRect(
           borderRadius: BorderRadius.all(
             Radius.circular(
               (MediaQuery.of(context).size.width +
@@ -87,51 +123,60 @@ class SpaceJamImageBox extends StatelessWidget {
                   (SpaceJamContainerInfo.of(context) ? .02 : .04),
             ),
           ),
-        ),
-        width: SpaceJamContainerInfo.of(context)
-            ? null
-            : MediaQuery.of(context).size.width * .8,
-        height: MediaQuery.of(context).size.height * .2,
-        child: Align(
-          alignment: Alignment.bottomRight,
-          child: GestureDetector(
-            onTap: onTap,
-            onTapUp: (_) {
-              hapticFeedback(context);
-              if (isInteractive && onTap == null) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => SpaceJamImagePage(
-                      image,
-                      imageURL: imageURL,
-                    ),
-                  ),
-                );
-              }
-            },
-            child: onTap != null || isInteractive == true
-                ? Tooltip(
-                    message: tooltip ??
-                        _localization[(_supportedLocales.contains(locale)
-                                ? locale
-                                : _supportedLocales.first)!
-                            .languageCode]!["fullscreen"],
-                    child: Padding(
-                      padding: EdgeInsets.all(
-                        (MediaQuery.of(context).size.width +
-                                MediaQuery.of(context).size.height) /
-                            2 *
-                            .03,
+          child: Stack(
+            alignment: Alignment.bottomRight,
+            children: <Widget>[
+              Container(
+                color: Colors.black,
+                child: Image(
+                  image: image.image,
+                  width: SpaceJamContainerInfo.of(context)
+                      ? MediaQuery.of(context).size.width * .9
+                      : MediaQuery.of(context).size.width * .8,
+                  height: finalHeight,
+                  fit: BoxFit.scaleDown,
+                ),
+              ),
+              GestureDetector(
+                onTap: onTap,
+                onTapUp: (_) {
+                  hapticFeedback(context);
+                  if (isInteractive && onTap == null) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<Widget>(
+                        builder: (BuildContext context) => SpaceJamImagePage(
+                          image,
+                          imageURL: imageURL,
+                        ),
                       ),
-                      child: Icon(
-                        Icons.fullscreen,
-                        color: Colors.white,
-                        size: MediaQuery.of(context).size.width * .075,
-                      ),
-                    ),
-                  )
-                : const Min(),
+                    );
+                  }
+                },
+                child: onTap != null || isInteractive == true
+                    ? Tooltip(
+                        message: tooltip ??
+                            _localization[(_supportedLocales.contains(locale)
+                                    ? locale
+                                    : _supportedLocales.first)!
+                                .languageCode]!["fullscreen"],
+                        child: Padding(
+                          padding: EdgeInsets.all(
+                            (MediaQuery.of(context).size.width +
+                                    MediaQuery.of(context).size.height) /
+                                2 *
+                                .03,
+                          ),
+                          child: Icon(
+                            Icons.fullscreen,
+                            color: Colors.white,
+                            size: MediaQuery.of(context).size.width * .075,
+                          ),
+                        ),
+                      )
+                    : const Min(),
+              ),
+            ],
           ),
         ),
       ),
