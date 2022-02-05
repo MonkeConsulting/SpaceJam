@@ -12,6 +12,7 @@ class SpaceJamPage extends StatefulWidget {
   const SpaceJamPage({
     required this.children,
     required this.title,
+    this.subtitle,
     this.animated = "system",
     this.haptics = true,
     this.locale,
@@ -37,6 +38,9 @@ class SpaceJamPage extends StatefulWidget {
 
   /// Title of the page.
   final String title;
+
+  /// Subtitle of the page.
+  final String? subtitle;
 
   /// [SpaceJamAppBarAction] to make an clickable
   /// [Icon] on the left of the appbar.
@@ -82,6 +86,7 @@ class SpaceJamPageState extends State<SpaceJamPage> {
                         opacity: 0,
                         child: SpaceJamAppBar(
                           title: widget.title,
+                          subtitle: widget.subtitle,
                         ),
                       ),
                       ...widget.children,
@@ -91,6 +96,7 @@ class SpaceJamPageState extends State<SpaceJamPage> {
               ),
               SpaceJamAppBar(
                 title: widget.title,
+                subtitle: widget.subtitle,
                 controller: _controller,
                 leftAction: widget.appBarLeftAction,
                 rightAction: widget.appBarRightAction,
