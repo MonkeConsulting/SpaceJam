@@ -20,6 +20,7 @@ class Example extends StatelessWidget {
           primarySwatch: Colors.blue,
           textTheme: SpaceJamThemeData.textTheme(),
         ),
+        //showSemanticsDebugger: true,
         debugShowCheckedModeBanner: false,
         home: const HomePage(),
       );
@@ -41,6 +42,7 @@ class HomePageState extends State<HomePage> {
         title: "SpaceJam",
         appBarRightAction: const SpaceJamAppBarAction(
           Icons.search,
+          semanticLabel: "Search between elements.",
         ),
         children: <dynamic>[
           SpaceJamContainer(
@@ -106,6 +108,7 @@ class HomePageState extends State<HomePage> {
                   Image.network(
                     "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
                   ),
+                  semanticLabel: "Some gibbons having fun.",
                 ),
                 SizedBox(
                   height: (MediaQuery.of(context).size.width +
@@ -129,10 +132,12 @@ class HomePageState extends State<HomePage> {
                           ),
                           imageURL:
                               "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                          semanticLabel: "Some gibbons having fun.",
                         ),
                       ),
                     );
                   },
+                  semanticLabel: "Click to open the SpaceJamImagePage.",
                 ),
               ],
             ),
@@ -153,16 +158,19 @@ class HomePageState extends State<HomePage> {
                     ),
                     imageURL:
                         "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
+                    semanticLabel: "Some gibbons having fun.",
                   ),
                 ),
               );
             },
+            semanticLabel: "Click to open the SpaceJamImagePage.",
           ),
           SpaceJamImageBox(
             Image.network(
               "https://assets.4cdn.hu/kraken/6pI26jBO69hwv9c6s.jpeg",
-              ),
+            ),
             isInteractive: false,
+            semanticLabel: "Some gibbons having fun.",
           ),
           SpaceJamImageBox(
             Image.network(
@@ -170,6 +178,7 @@ class HomePageState extends State<HomePage> {
             ),
             isInteractive: false,
             autoHeight: true,
+            semanticLabel: "Some gibbons having fun.",
           ),
           SpaceJamCollection(
             title: "Collection",
@@ -181,12 +190,15 @@ class HomePageState extends State<HomePage> {
                 lowerCaption: "With",
                 lowerValue: "Action",
                 onTap: () {},
+                semanticLabel: "First item. Click to perform action.",
               ),
               const SpaceJamCollectionItem(
                 backgroundColor: Colors.blue,
                 upperValue: "Item",
                 lowerCaption: "Without",
                 lowerValue: "Action",
+                semanticLabel: "This text is customizable, use the "
+                    "semanticLabel property if available.",
               ),
               const SpaceJamCollectionItem(
                 backgroundColor: Colors.blue,
@@ -194,6 +206,8 @@ class HomePageState extends State<HomePage> {
                 upperValue: "Item",
                 lowerCaption: "Without",
                 lowerValue: "Action",
+                semanticLabel: "Make your apps available to "
+                    "people with disabilities.",
               ),
               SpaceJamCollectionItem(
                 backgroundColor: Colors.blue,
@@ -202,6 +216,7 @@ class HomePageState extends State<HomePage> {
                 upperValue: "Item",
                 lowerCaption: "With",
                 lowerValue: "Action",
+                semanticLabel: "Last item. Click to perform action.",
               ),
             ],
           ),

@@ -1,3 +1,8 @@
+# 1.1.5
+* improved accessibility
+* added `autoHeight` parameter to SpaceJamImagePage
+* added `semanticLabel` parameter to most of the SpaceJam widgets
+* Bugfixes
 # 1.1.4
 * added SpaceJamTheme
 * Bugfixes

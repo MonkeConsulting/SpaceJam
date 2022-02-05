@@ -97,5 +97,29 @@ void main() {
       await tester.tap(find.byType(GestureDetector));
       expect(variable, true);
     });
+
+    testWidgets("Testing semantics in SpaceJamButton.",
+        (WidgetTester tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: SpaceJamButton(
+            titleFontSize: 16,
+            valueFontSize: 16,
+            title: "",
+            value: "",
+            action: () {},
+            semanticLabel: "semantic",
+          ),
+        ),
+      );
+
+      // Search elements
+      final Finder semanticFinder = find.bySemanticsLabel(
+        RegExp("semantic"),
+      );
+
+      // Verify elements
+      expect(semanticFinder, findsOneWidget);
+    });
   });
 }

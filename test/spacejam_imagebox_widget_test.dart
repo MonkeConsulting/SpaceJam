@@ -65,4 +65,24 @@ void main() {
     // Verify elements
     expect(iconFinder1, findsNothing);
   });
+
+  testWidgets("Testing semantics in SpaceJamImageBox",
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: SpaceJamImageBox(
+          imageWidget,
+          semanticLabel: "semantic",
+        ),
+      ),
+    );
+
+    // Search elements
+    final Finder semanticFinder = find.bySemanticsLabel(
+      RegExp("semantic"),
+    );
+
+    // Verify elements
+    expect(semanticFinder, findsOneWidget);
+  });
 }

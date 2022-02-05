@@ -24,6 +24,50 @@ void main() {
           ),
         ),
       );
+
+      // Search elements
+      final Finder floatingActionButtonFinder =
+          find.byType(FloatingActionButton);
+
+      // Verify elements
+      expect(floatingActionButtonFinder, findsOneWidget);
+    });
+
+    testWidgets("SpaceJamImagePage with url to the image.",
+        (WidgetTester tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: SpaceJamImagePage(
+            imageWidget,
+            imageURL: "example URL",
+          ),
+        ),
+      );
+
+      // Search elements
+      final Finder floatingActionButtonFinder =
+          find.byType(FloatingActionButton);
+
+      // Verify elements
+      expect(floatingActionButtonFinder, findsNWidgets(2));
+    });
+
+    testWidgets("Testing semantics in SpaceJamImagePage.",
+        (WidgetTester tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: SpaceJamImagePage(
+            imageWidget,
+            semanticLabel: "semantic",
+          ),
+        ),
+      );
+
+      // Search elements
+      final Finder semanticFinder = find.bySemanticsLabel(RegExp("semantic"),);
+
+      // Verify elements
+      expect(semanticFinder, findsOneWidget);
     });
   });
 }

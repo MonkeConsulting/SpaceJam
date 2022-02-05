@@ -27,6 +27,7 @@ class SpaceJamCollectionItem extends StatelessWidget {
     this.backgroundImage,
     this.lowerCaption,
     this.lowerValue,
+    this.semanticLabel,
   }) : super(key: key);
 
   /// Upper caption.
@@ -53,6 +54,9 @@ class SpaceJamCollectionItem extends StatelessWidget {
   /// Action triggered on tap.
   final VoidCallback? onTap;
 
+  /// Semantic label.
+  final String? semanticLabel;
+
   @override
   Widget build(BuildContext context) => Tooltip(
         message: tooltip,
@@ -61,104 +65,108 @@ class SpaceJamCollectionItem extends StatelessWidget {
           onTapUp: (_) {
             HapticFeedback.selectionClick();
           },
-          child: Container(
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              image: backgroundImage,
-              borderRadius: BorderRadius.all(
-                Radius.circular(
+          child: Semantics(
+            button: true,
+            label: semanticLabel,
+            child: Container(
+              decoration: BoxDecoration(
+                color: backgroundColor,
+                image: backgroundImage,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(
+                    (MediaQuery.of(context).size.width +
+                            MediaQuery.of(context).size.height) /
+                        2 *
+                        .04,
+                  ),
+                ),
+              ),
+              width: MediaQuery.of(context).size.width * .385,
+              height: MediaQuery.of(context).size.height * .2,
+              child: Padding(
+                padding: EdgeInsets.all(
                   (MediaQuery.of(context).size.width +
                           MediaQuery.of(context).size.height) /
                       2 *
-                      .04,
+                      .03,
                 ),
-              ),
-            ),
-            width: MediaQuery.of(context).size.width * .385,
-            height: MediaQuery.of(context).size.height * .2,
-            child: Padding(
-              padding: EdgeInsets.all(
-                (MediaQuery.of(context).size.width +
-                        MediaQuery.of(context).size.height) /
-                    2 *
-                    .03,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      upperCaption != null
-                          ? AutoSizeText(
-                              upperCaption!,
-                              style: SpaceJamTextStyles.bodySmall(
-                                context,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              group: collectionItemCaptionAutoSizeGroup,
-                              maxLines: 1,
-                              minFontSize: 1,
-                            )
-                          : const Min(),
-                      AutoSizeText(
-                        upperValue,
-                        group: collectionItemValueAutoSizeGroup,
-                        maxLines: 2,
-                        overflow: TextOverflow.fade,
-                        style: SpaceJamTextStyles.bodyMedium(
-                          context,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        upperCaption != null
+                            ? AutoSizeText(
+                                upperCaption!,
+                                style: SpaceJamTextStyles.bodySmall(
+                                  context,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                group: collectionItemCaptionAutoSizeGroup,
+                                maxLines: 1,
+                                minFontSize: 1,
+                              )
+                            : const Min(),
+                        AutoSizeText(
+                          upperValue,
+                          group: collectionItemValueAutoSizeGroup,
+                          maxLines: 2,
+                          overflow: TextOverflow.fade,
+                          style: SpaceJamTextStyles.bodyMedium(
+                            context,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          minFontSize: 1,
                         ),
-                        minFontSize: 1,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            lowerCaption != null
-                                ? AutoSizeText(
-                                    lowerCaption!,
-                                    style: SpaceJamTextStyles.bodySmall(
-                                      context,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    group: collectionItemCaptionAutoSizeGroup,
-                                    maxLines: 1,
-                                    minFontSize: 1,
-                                  )
-                                : const Min(),
-                            lowerValue != null
-                                ? Text(
-                                    lowerValue!,
-                                    style: SpaceJamTextStyles.bodyMedium(
-                                      context,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  )
-                                : const Min(),
-                          ],
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              lowerCaption != null
+                                  ? AutoSizeText(
+                                      lowerCaption!,
+                                      style: SpaceJamTextStyles.bodySmall(
+                                        context,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      group: collectionItemCaptionAutoSizeGroup,
+                                      maxLines: 1,
+                                      minFontSize: 1,
+                                    )
+                                  : const Min(),
+                              lowerValue != null
+                                  ? Text(
+                                      lowerValue!,
+                                      style: SpaceJamTextStyles.bodyMedium(
+                                        context,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                    )
+                                  : const Min(),
+                            ],
+                          ),
                         ),
-                      ),
-                      onTap != null
-                          ? Icon(
-                              Icons.arrow_forward_rounded,
-                              size: MediaQuery.of(context).size.width * .075,
-                              color: Colors.white,
-                            )
-                          : const Min(),
-                    ],
-                  ),
-                ],
+                        onTap != null
+                            ? Icon(
+                                Icons.arrow_forward_rounded,
+                                size: MediaQuery.of(context).size.width * .075,
+                                color: Colors.white,
+                              )
+                            : const Min(),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

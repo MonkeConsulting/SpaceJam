@@ -80,24 +80,27 @@ class SpaceJamAppBarState extends State<SpaceJamAppBar> {
 
     Widget subtitleWidget() {
       if (widget.subtitle != null) {
-        return widget.controller != null && boolAnimated == true
-            ? AnimatedOpacity(
-                opacity: appbarOpacity(
-                  offset: widget.controller!.offset,
-                  size: widgetSize,
-                ),
-                duration: widget.animationDuration,
-                child: Text(
-                  widget.subtitle!,
-                  style: SpaceJamTextStyles.titleSmall(
-                    context,
+        return Semantics(
+          header: true,
+          child: widget.controller != null && boolAnimated == true
+              ? AnimatedOpacity(
+                  opacity: appbarOpacity(
+                    offset: widget.controller!.offset,
+                    size: widgetSize,
                   ),
+                  duration: widget.animationDuration,
+                  child: Text(
+                    widget.subtitle!,
+                    style: SpaceJamTextStyles.titleSmall(
+                      context,
+                    ),
+                  ),
+                )
+              : Text(
+                  widget.subtitle!,
+                  style: SpaceJamTextStyles.titleSmall(context),
                 ),
-              )
-            : Text(
-                widget.subtitle!,
-                style: SpaceJamTextStyles.titleSmall(context),
-              );
+        );
       } else {
         return const Min();
       }
@@ -154,27 +157,32 @@ class SpaceJamAppBarState extends State<SpaceJamAppBar> {
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    widget.controller != null &&
-                                            boolAnimated == true
-                                        ? AnimatedOpacity(
-                                            opacity: appbarOpacity(
-                                              offset: widget.controller!.offset,
-                                              size: widgetSize,
-                                            ),
-                                            duration: widget.animationDuration,
-                                            child: Text(
+                                    Semantics(
+                                      header: true,
+                                      child: widget.controller != null &&
+                                              boolAnimated == true
+                                          ? AnimatedOpacity(
+                                              opacity: appbarOpacity(
+                                                offset:
+                                                    widget.controller!.offset,
+                                                size: widgetSize,
+                                              ),
+                                              duration:
+                                                  widget.animationDuration,
+                                              child: Text(
+                                                widget.title,
+                                                style: SpaceJamTextStyles.title(
+                                                  context,
+                                                ),
+                                              ),
+                                            )
+                                          : Text(
                                               widget.title,
                                               style: SpaceJamTextStyles.title(
                                                 context,
                                               ),
                                             ),
-                                          )
-                                        : Text(
-                                            widget.title,
-                                            style: SpaceJamTextStyles.title(
-                                              context,
-                                            ),
-                                          ),
+                                    ),
                                     subtitleWidget(),
                                   ],
                                 ),

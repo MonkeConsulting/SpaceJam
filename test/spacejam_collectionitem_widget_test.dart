@@ -79,4 +79,24 @@ void main() {
     // Verify
     expect(tooltip, findsOneWidget);
   });
+
+  testWidgets("Testing semantics in SpaceJamCollectionItem.",
+      (WidgetTester tester) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: SpaceJamCollectionItem(
+          upperValue: "",
+          semanticLabel: "semantic",
+        ),
+      ),
+    );
+
+    /// Search elements
+    final Finder tooltip = find.bySemanticsLabel(
+      RegExp("semantic"),
+    );
+
+    // Verify
+    expect(tooltip, findsOneWidget);
+  });
 }

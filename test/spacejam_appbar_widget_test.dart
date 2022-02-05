@@ -96,5 +96,33 @@ void main() {
       expect(leftTooltip, findsOneWidget);
       expect(rightTooltip, findsOneWidget);
     });
+
+    testWidgets(
+        "Testing semantics in SpaceJamAppBar and SpaceJamAppBarAction.",
+        (WidgetTester tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: SpaceJamAppBar(
+            title: "title",
+            leftAction: SpaceJamAppBarAction(
+              Icons.add,
+              semanticLabel: "leftAction",
+            ),
+            rightAction: SpaceJamAppBarAction(
+              Icons.remove,
+              semanticLabel: "rightAction",
+            ),
+          ),
+        ),
+      );
+
+      // Search elements
+      final Finder leftSemantic = find.bySemanticsLabel(RegExp("leftAction"),);
+      final Finder rightSemantic = find.bySemanticsLabel(RegExp("rightAction"),);
+
+      // Verify
+      expect(leftSemantic, findsOneWidget);
+      expect(rightSemantic, findsOneWidget);
+    });
   });
 }

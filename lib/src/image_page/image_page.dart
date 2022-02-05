@@ -49,6 +49,7 @@ class SpaceJamImagePage extends StatefulWidget {
   const SpaceJamImagePage(
     this.image, {
     this.imageURL,
+    this.semanticLabel,
     Key? key,
   }) : super(key: key);
 
@@ -57,6 +58,9 @@ class SpaceJamImagePage extends StatefulWidget {
 
   /// The url of the image. Optional.
   final String? imageURL;
+
+  /// Semantic label.
+  final String? semanticLabel;
 
   @override
   SpaceJamImagePageState createState() => SpaceJamImagePageState();
@@ -101,9 +105,9 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
             Align(
               alignment: Alignment.topLeft,
               child: FloatingActionButton(
-                /// have to define heroTag because this widget uses
-                /// two [FloatingActionButton]-s which are making an
-                /// error because of their same default values.
+                // Have to define heroTag because this widget uses
+                // two [FloatingActionButton]-s which are making an
+                // error because of their same default values.
                 heroTag: null,
                 backgroundColor: Colors.black,
                 onPressed: () {
@@ -125,9 +129,9 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
                 ? Align(
                     alignment: Alignment.topRight,
                     child: FloatingActionButton(
-                      /// have to define heroTag because this widget uses
-                      /// two [FloatingActionButton]-s which are making an
-                      /// error because of their same default values.
+                      // Have to define heroTag because this widget uses
+                      // two [FloatingActionButton]-s which are making an
+                      // error because of their same default values.
                       heroTag: null,
                       backgroundColor: Colors.black,
                       onPressed: () {
@@ -176,11 +180,15 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-      body: InteractiveViewer(
-        minScale: 1,
-        maxScale: 4,
-        child: Align(
-          child: widget.image,
+      body: Semantics(
+        image: true,
+        label: widget.semanticLabel,
+        child: InteractiveViewer(
+          minScale: 1,
+          maxScale: 4,
+          child: Align(
+            child: widget.image,
+          ),
         ),
       ),
     );

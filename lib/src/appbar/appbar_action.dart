@@ -12,6 +12,7 @@ class SpaceJamAppBarAction extends StatelessWidget {
     this.icon, {
     this.tooltip = "",
     this.action,
+    this.semanticLabel,
     Key? key,
   }) : super(key: key);
 
@@ -24,25 +25,32 @@ class SpaceJamAppBarAction extends StatelessWidget {
   /// Action that happens when tapping on the icon.
   final VoidCallback? action;
 
+  /// Semantic label.
+  final String? semanticLabel;
+
   @override
-  Widget build(BuildContext context) => GestureDetector(
-        onTap: action,
-        onTapUp: (_) {
-          hapticFeedback(context);
-        },
-        child: Padding(
-          padding: EdgeInsets.only(
-            right: (MediaQuery.of(context).size.width +
-                    MediaQuery.of(context).size.height) /
-                2 *
-                .04,
-          ),
-          child: Tooltip(
-            message: tooltip,
-            child: Icon(
-              icon,
-              size: MediaQuery.of(context).size.width * .075,
-              color: Colors.black,
+  Widget build(BuildContext context) => Semantics(
+        button: true,
+        label: semanticLabel,
+        child: GestureDetector(
+          onTap: action,
+          onTapUp: (_) {
+            hapticFeedback(context);
+          },
+          child: Padding(
+            padding: EdgeInsets.only(
+              right: (MediaQuery.of(context).size.width +
+                      MediaQuery.of(context).size.height) /
+                  2 *
+                  .04,
+            ),
+            child: Tooltip(
+              message: tooltip,
+              child: Icon(
+                icon,
+                size: MediaQuery.of(context).size.width * .075,
+                color: Colors.black,
+              ),
             ),
           ),
         ),

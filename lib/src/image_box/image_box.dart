@@ -45,6 +45,7 @@ class SpaceJamImageBox extends StatelessWidget {
     this.onTap,
     this.tooltip,
     this.isInteractive = true,
+    this.semanticLabel,
   }) : super(key: key);
 
   /// Image to display.
@@ -71,6 +72,9 @@ class SpaceJamImageBox extends StatelessWidget {
   /// A boolean which controls the default actions.
   /// Disabled id [onTap] is used.
   final bool isInteractive;
+
+  /// Semantic label.
+  final String? semanticLabel;
 
   @override
   Widget build(BuildContext context) {
@@ -123,60 +127,65 @@ class SpaceJamImageBox extends StatelessWidget {
                   (SpaceJamContainerInfo.of(context) ? .02 : .04),
             ),
           ),
-          child: Stack(
-            alignment: Alignment.bottomRight,
-            children: <Widget>[
-              Container(
-                color: Colors.black,
-                child: Image(
-                  image: image.image,
-                  width: SpaceJamContainerInfo.of(context)
-                      ? MediaQuery.of(context).size.width * .9
-                      : MediaQuery.of(context).size.width * .8,
-                  height: finalHeight,
-                  fit: BoxFit.scaleDown,
+          child: Semantics(
+            image: true,
+            label: semanticLabel,
+            child: Stack(
+              alignment: Alignment.bottomRight,
+              children: <Widget>[
+                Container(
+                  color: Colors.black,
+                  child: Image(
+                    image: image.image,
+                    width: SpaceJamContainerInfo.of(context)
+                        ? MediaQuery.of(context).size.width * .9
+                        : MediaQuery.of(context).size.width * .8,
+                    height: finalHeight,
+                    fit: BoxFit.scaleDown,
+                  ),
                 ),
-              ),
-              GestureDetector(
-                onTap: onTap,
-                onTapUp: (_) {
-                  hapticFeedback(context);
-                  if (isInteractive && onTap == null) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<Widget>(
-                        builder: (BuildContext context) => SpaceJamImagePage(
-                          image,
-                          imageURL: imageURL,
-                        ),
-                      ),
-                    );
-                  }
-                },
-                child: onTap != null || isInteractive == true
-                    ? Tooltip(
-                        message: tooltip ??
-                            _localization[(_supportedLocales.contains(locale)
-                                    ? locale
-                                    : _supportedLocales.first)!
-                                .languageCode]!["fullscreen"],
-                        child: Padding(
-                          padding: EdgeInsets.all(
-                            (MediaQuery.of(context).size.width +
-                                    MediaQuery.of(context).size.height) /
-                                2 *
-                                .03,
-                          ),
-                          child: Icon(
-                            Icons.fullscreen,
-                            color: Colors.white,
-                            size: MediaQuery.of(context).size.width * .075,
+                GestureDetector(
+                  onTap: onTap,
+                  onTapUp: (_) {
+                    hapticFeedback(context);
+                    if (isInteractive && onTap == null) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute<Widget>(
+                          builder: (BuildContext context) => SpaceJamImagePage(
+                            image,
+                            imageURL: imageURL,
+                            semanticLabel: semanticLabel,
                           ),
                         ),
-                      )
-                    : const Min(),
-              ),
-            ],
+                      );
+                    }
+                  },
+                  child: onTap != null || isInteractive == true
+                      ? Tooltip(
+                          message: tooltip ??
+                              _localization[(_supportedLocales.contains(locale)
+                                      ? locale
+                                      : _supportedLocales.first)!
+                                  .languageCode]!["fullscreen"],
+                          child: Padding(
+                            padding: EdgeInsets.all(
+                              (MediaQuery.of(context).size.width +
+                                      MediaQuery.of(context).size.height) /
+                                  2 *
+                                  .03,
+                            ),
+                            child: Icon(
+                              Icons.fullscreen,
+                              color: Colors.white,
+                              size: MediaQuery.of(context).size.width * .075,
+                            ),
+                          ),
+                        )
+                      : const Min(),
+                ),
+              ],
+            ),
           ),
         ),
       ),

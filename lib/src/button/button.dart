@@ -52,6 +52,7 @@ class SpaceJamButton extends StatelessWidget {
     this.action,
     this.valueSizeGroup,
     this.value,
+    this.semanticLabel,
     Key? key,
   }) : super(key: key);
 
@@ -95,6 +96,9 @@ class SpaceJamButton extends StatelessWidget {
   /// Action when tapping on the button.
   final VoidCallback? action;
 
+  /// Semantic label.
+  final String? semanticLabel;
+
   @override
   Widget build(BuildContext context) {
     final TextStyle primaryFinalTextStyle =
@@ -102,80 +106,85 @@ class SpaceJamButton extends StatelessWidget {
     final TextStyle secondaryFinalTextStyle =
         titleTextStyle.copyWith(fontSize: titleFontSize);
 
-    return GestureDetector(
-      onTap: action,
-      onTapUp: (_) {
-        hapticFeedback(context);
-      },
-      child: Padding(
-        padding: EdgeInsets.only(
-          bottom: (MediaQuery.of(context).size.width +
-                  MediaQuery.of(context).size.height) /
-              2 *
-              (SpaceJamContainerInfo.of(context) ? .0 : .04),
-        ),
-        child: Container(
-          width: SpaceJamContainerInfo.of(context)
-              ? null
-              : MediaQuery.of(context).size.width * .9,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(
+    return Padding(
+      padding: EdgeInsets.only(
+        bottom: (MediaQuery.of(context).size.width +
+                MediaQuery.of(context).size.height) /
+            2 *
+            (SpaceJamContainerInfo.of(context) ? .0 : .04),
+      ),
+      child: Semantics(
+        button: true,
+        container: true,
+        label: semanticLabel,
+        child: GestureDetector(
+          onTap: action,
+          onTapUp: (_) {
+            hapticFeedback(context);
+          },
+          child: Container(
+            width: SpaceJamContainerInfo.of(context)
+                ? null
+                : MediaQuery.of(context).size.width * .9,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  (MediaQuery.of(context).size.width +
+                          MediaQuery.of(context).size.height) /
+                      2 *
+                      (SpaceJamContainerInfo.of(context) ? .02 : .04),
+                ),
+              ),
+              color: backgroundColor,
+              image: backgroundImage,
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(
                 (MediaQuery.of(context).size.width +
                         MediaQuery.of(context).size.height) /
                     2 *
-                    (SpaceJamContainerInfo.of(context) ? .02 : .04),
+                    (SpaceJamContainerInfo.of(context) ? .02 : .03),
               ),
-            ),
-            color: backgroundColor,
-            image: backgroundImage,
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(
-              (MediaQuery.of(context).size.width +
-                      MediaQuery.of(context).size.height) /
-                  2 *
-                  (SpaceJamContainerInfo.of(context) ? .02 : .03),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                // conditional to render text with title or not
-                title != null
-                    ? Text(
-                        title!,
-                        style: secondaryFinalTextStyle,
-                        overflow: TextOverflow.ellipsis,
-                      )
-                    : const Min(),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    value is String
-                        ? Expanded(
-                            child: Text(
-                              value,
-                              style: primaryFinalTextStyle,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          )
-                        : value,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  // conditional to render text with title or not
+                  title != null
+                      ? Text(
+                          title!,
+                          style: secondaryFinalTextStyle,
+                          overflow: TextOverflow.ellipsis,
+                        )
+                      : const Min(),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      value is String
+                          ? Expanded(
+                              child: Text(
+                                value,
+                                style: primaryFinalTextStyle,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            )
+                          : value,
 
-                    // conditional to render icon or not
-                    action != null
-                        ? Tooltip(
-                            message: tooltip,
-                            child: Icon(
-                              Icons.arrow_forward_rounded,
-                              size: MediaQuery.of(context).size.width * .075,
-                              color: iconStyle.color ?? valueTextStyle.color,
-                            ),
-                          )
-                        : const Min(),
-                  ],
-                ),
-              ],
+                      // conditional to render icon or not
+                      action != null
+                          ? Tooltip(
+                              message: tooltip,
+                              child: Icon(
+                                Icons.arrow_forward_rounded,
+                                size: MediaQuery.of(context).size.width * .075,
+                                color: iconStyle.color ?? valueTextStyle.color,
+                              ),
+                            )
+                          : const Min(),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
