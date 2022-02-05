@@ -1,5 +1,7 @@
+# 1.1.7
+* added `subtite` to SpaceJamPage
 # 1.1.6
-* Bugfix
+* Bugfixes
 # 1.1.5
 * improved accessibility
 * added `autoHeight` parameter to SpaceJamImagePage
