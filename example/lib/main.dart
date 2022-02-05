@@ -39,6 +39,7 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => SpaceJamPage(
+        locale: Locale("hu"),
         title: "SpaceJam",
         appBarRightAction: const SpaceJamAppBarAction(
           Icons.search,

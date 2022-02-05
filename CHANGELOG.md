@@ -1,3 +1,5 @@
+# 1.1.6
+* Bugfix
 # 1.1.5
 * improved accessibility
 * added `autoHeight` parameter to SpaceJamImagePage

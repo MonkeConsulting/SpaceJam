@@ -90,7 +90,7 @@
 Add `spacejam` to your dependencies.yaml.
 ```yaml
 dependencies:
-  spacejam: ^1.1.5
+  spacejam: ^1.1.6
 ```
 
 Run pub get in your terminal.

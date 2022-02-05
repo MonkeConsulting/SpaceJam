@@ -25,11 +25,11 @@ Map<String, Map<String, String>> _localization = <String, Map<String, String>>{
 };
 
 /// List of supported locales.
-List<Locale> _supportedLocales = const <Locale>[
-  Locale("en"),
-  Locale("hu"),
-  Locale("de"),
-  Locale("da"),
+List<String> _supportedLocales = const <String>[
+  "en",
+  "hu",
+  "de",
+  "da",
 ];
 
 /// The astronomy picture of day widget. This shows the
@@ -164,9 +164,10 @@ class SpaceJamImageBox extends StatelessWidget {
                   child: onTap != null || isInteractive == true
                       ? Tooltip(
                           message: tooltip ??
-                              _localization[(_supportedLocales.contains(locale)
+                              _localization[(_supportedLocales
+                                          .contains(locale?.languageCode)
                                       ? locale
-                                      : _supportedLocales.first)!
+                                      : Locale(_supportedLocales.first))!
                                   .languageCode]!["fullscreen"],
                           child: Padding(
                             padding: EdgeInsets.all(

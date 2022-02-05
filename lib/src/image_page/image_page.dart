@@ -36,11 +36,11 @@ Map<String, Map<String, String>> _localization = <String, Map<String, String>>{
 };
 
 /// List of supported locales.
-List<Locale> _supportedLocales = const <Locale>[
-  Locale("en"),
-  Locale("hu"),
-  Locale("de"),
-  Locale("da"),
+List<String> _supportedLocales = const <String>[
+  "en",
+  "hu",
+  "de",
+  "da",
 ];
 
 /// Fullscreen image shower.
@@ -114,10 +114,11 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
                   hapticFeedback(context);
                   Navigator.pop(context);
                 },
-                tooltip: _localization[(_supportedLocales.contains(locale)
-                        ? locale
-                        : _supportedLocales.first)!
-                    .languageCode]!["back"],
+                tooltip: _localization[
+                    (_supportedLocales.contains(locale?.languageCode)
+                            ? locale
+                            : Locale(_supportedLocales.first))!
+                        .languageCode]!["back"],
                 child: Icon(
                   Icons.arrow_back_rounded,
                   size: MediaQuery.of(context).size.width * .075,
@@ -146,17 +147,18 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             content: Text(
-                              _localization[(_supportedLocales.contains(locale)
+                              _localization[(_supportedLocales
+                                          .contains(locale?.languageCode)
                                       ? locale
-                                      : _supportedLocales.first)!
+                                      : Locale(_supportedLocales.first))!
                                   .languageCode]!["urlCopied"]!,
                             ),
                             action: SnackBarAction(
-                              label: _localization[
-                                  (_supportedLocales.contains(locale)
-                                          ? locale
-                                          : _supportedLocales.first)!
-                                      .languageCode]!["ok"]!,
+                              label: _localization[(_supportedLocales
+                                          .contains(locale?.languageCode)
+                                      ? locale
+                                      : Locale(_supportedLocales.first))!
+                                  .languageCode]!["ok"]!,
                               onPressed: () {
                                 hapticFeedback(context);
                               },
@@ -164,10 +166,11 @@ class SpaceJamImagePageState extends State<SpaceJamImagePage> {
                           ),
                         );
                       },
-                      tooltip: _localization[(_supportedLocales.contains(locale)
-                              ? locale
-                              : _supportedLocales.first)!
-                          .languageCode]!["copyURL"],
+                      tooltip: _localization[
+                          (_supportedLocales.contains(locale?.languageCode)
+                                  ? locale
+                                  : Locale(_supportedLocales.first))!
+                              .languageCode]!["copyURL"],
                       child: Icon(
                         Icons.link,
                         size: MediaQuery.of(context).size.width * .075,
