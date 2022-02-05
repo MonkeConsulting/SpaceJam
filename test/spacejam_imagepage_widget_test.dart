@@ -64,7 +64,9 @@ void main() {
       );
 
       // Search elements
-      final Finder semanticFinder = find.bySemanticsLabel(RegExp("semantic"),);
+      final Finder semanticFinder = find.bySemanticsLabel(
+        RegExp("semantic"),
+      );
 
       // Verify elements
       expect(semanticFinder, findsOneWidget);

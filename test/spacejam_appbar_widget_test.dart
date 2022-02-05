@@ -97,8 +97,7 @@ void main() {
       expect(rightTooltip, findsOneWidget);
     });
 
-    testWidgets(
-        "Testing semantics in SpaceJamAppBar and SpaceJamAppBarAction.",
+    testWidgets("Testing semantics in SpaceJamAppBar and SpaceJamAppBarAction.",
         (WidgetTester tester) async {
       await tester.pumpWidget(
         const MaterialApp(
@@ -117,8 +116,12 @@ void main() {
       );
 
       // Search elements
-      final Finder leftSemantic = find.bySemanticsLabel(RegExp("leftAction"),);
-      final Finder rightSemantic = find.bySemanticsLabel(RegExp("rightAction"),);
+      final Finder leftSemantic = find.bySemanticsLabel(
+        RegExp("leftAction"),
+      );
+      final Finder rightSemantic = find.bySemanticsLabel(
+        RegExp("rightAction"),
+      );
 
       // Verify
       expect(leftSemantic, findsOneWidget);
